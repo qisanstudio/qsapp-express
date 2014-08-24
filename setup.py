@@ -87,7 +87,7 @@ if os.path.isfile('gulpfile.js'):
                               'build_ext': build_ext}}
 
 setup_params = dict(
-    name="express",
+    name="qsapp-express",
     url="http://wiki.yimiqisan.com/",
     version='1.0',
     author="qisan",
