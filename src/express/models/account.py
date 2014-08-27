@@ -3,7 +3,6 @@
 from __future__ import unicode_literals
 
 import os
-import uuid
 import base64
 import hashlib
 from hmac import HMAC
@@ -11,6 +10,7 @@ from flask.helpers import locked_cached_property
 from sqlalchemy.ext.hybrid import hybrid_property
 
 from studio.core.engines import db
+from studio.core.flask.helpers import gen_uuid
 
 
 __all__ = [
@@ -24,10 +24,6 @@ __all__ = [
 _sha1 = lambda t: hashlib.sha1(t).hexdigest()
 _base64_encode = lambda t: base64.b64encode(t)
 _base64_decode = lambda t: base64.b64decode(t)
-
-
-def rand_uuid():
-    return uuid.uuid4().hex
 
 
 class RolePrivilegeModel(db.Model):
@@ -75,7 +71,7 @@ class AccountModel(db.Model):
     __tablename__ = 'account'
 
     uid = db.Column(db.CHAR(32), nullable=False,
-                                 default=rand_uuid,
+                                 default=gen_uuid,
                                  primary_key=True)
     nickname = db.Column(db.Unicode(256), nullable=False)
     role_id = db.Column(db.Integer(), db.ForeignKey('role.id'),
