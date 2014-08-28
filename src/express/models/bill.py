@@ -45,7 +45,7 @@ class LogisticsModel(db.Model):
 
     id = db.Column(db.Integer(), nullable=False, primary_key=True)
     genre = db.Column(db.Unicode(64), nullable=False, index=True)
-    infomation = db.Column(db.UnicodeContent(), nullable=False)
+    infomation = db.Column(db.UnicodeText(), nullable=False)
     date_created = db.Column(db.DateTime(timezone=True),
                              nullable=False, index=True,
                              server_default=db.func.current_timestamp())
@@ -66,7 +66,7 @@ class BillModel(db.Model):
     order_num = db.Column(db.Integer(), nullable=False, unique=True)
     address_id = db.Column(db.Integer(), db.ForeignKey('address.id'),
                            nullable=False)
-    remark = db.Column(db.UnicodeContent(), nullable=True)
+    remark = db.Column(db.UnicodeText(), nullable=True)
     date_created = db.Column(db.DateTime(timezone=True),
                              nullable=False, index=True,
                              server_default=db.func.current_timestamp())
@@ -93,12 +93,13 @@ class ItemModel(db.Model):
     __tablename__ = 'item'
 
     id = db.Column(db.Integer(), nullable=False, primary_key=True)
-    bill_uid = db.Column(db.CHAR(32), db.ForeignKey('bill.id'), nullable=False)
+    bill_uid = db.Column(db.CHAR(32),
+                         db.ForeignKey('bill.uid'), nullable=False)
     name = db.Column(db.Unicode(256), nullable=False)
     genre = db.Column(db.Unicode(64), nullable=False, index=True)
     dollar = db.Column(db.Integer(), nullable=True)
     quantity = db.Column(db.Integer(), server_default=u'1', nullable=False)
-    remark = db.Column(db.UnicodeContent(), nullable=True)
+    remark = db.Column(db.UnicodeText(), nullable=True)
     date_created = db.Column(db.DateTime(timezone=True),
                              nullable=False, index=True,
                              server_default=db.func.current_timestamp())

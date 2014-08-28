@@ -15,6 +15,7 @@ import sqlalchemy as sa
 
 
 def upgrade():
+    # account
     op.create_table(u'role',
         sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
         sa.Column('title', sa.Unicode(length=64), nullable=False, unique=True),
@@ -55,6 +56,56 @@ def upgrade():
                                    server_default=sa.func.current_timestamp(),
                                    nullable=False, index=True),
     )
+    # bill
+    op.create_table(u'address',
+        sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
+        sa.Column('real_name', sa.Unicode(64), nullable=False, index=True),
+        sa.Column('mobile', sa.Unicode(32), nullable=False),
+        sa.Column('code', sa.Unicode(32), nullable=False),
+        sa.Column('IDnumber', sa.Unicode(64), nullable=False),
+        sa.Column(u'date_created', sa.DateTime(timezone=True),
+                                   server_default=sa.func.current_timestamp(),
+                                   nullable=False, index=True),
+    )
+
+
+    op.create_table(u'logistics',
+        sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
+        sa.Column('genre', sa.Unicode(64), nullable=False, index=True),
+        sa.Column('infomation', sa.UnicodeText(), nullable=False),
+        sa.Column(u'date_created', sa.DateTime(timezone=True),
+                                   server_default=sa.func.current_timestamp(),
+                                   nullable=False, index=True),
+    )
+
+
+    op.create_table(u'bill',
+        sa.Column('uid', sa.CHAR(32), nullable=False, primary_key=True),
+        sa.Column('order_num', sa.Integer(), nullable=False, unique=True),
+        sa.Column('genre', sa.Unicode(64), nullable=False, index=True),
+        sa.Column('address_id', sa.Integer(),
+                             sa.ForeignKey('address.id'), nullable=False),
+        sa.Column('remark', sa.UnicodeText(), nullable=False),
+        sa.Column(u'date_created', sa.DateTime(timezone=True),
+                                   server_default=sa.func.current_timestamp(),
+                                   nullable=False, index=True),
+    )
+
+
+    op.create_table(u'item',
+        sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
+        sa.Column('bill_uid', sa.CHAR(32),
+                  sa.ForeignKey('bill.uid'), nullable=False),
+        sa.Column('name', sa.Unicode(256), nullable=False),
+        sa.Column('genre', sa.Unicode(64), nullable=False, index=True),
+        sa.Column('dollar', sa.Integer(), nullable=False),
+        sa.Column('quantity', sa.Integer(),
+                              server_default=u'1', nullable=False),
+        sa.Column('remark', sa.UnicodeText(), nullable=False),
+        sa.Column(u'date_created', sa.DateTime(timezone=True),
+                                   server_default=sa.func.current_timestamp(),
+                                   nullable=False, index=True),
+    )
 
 
 def downgrade():
@@ -63,3 +114,7 @@ def downgrade():
     op.drop_table(u'email')
     op.drop_table(u'account')
     op.drop_table(u'role')
+    op.drop_table(u'item')
+    op.drop_table(u'bill')
+    op.drop_table(u'logistics')
+    op.drop_table(u'address')
