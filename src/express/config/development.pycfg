@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+
+import os
+
+DEBUG = True
+SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://express:eeee@localhost/express'
+
+UWSGI_SOCKET = '0.0.0.0:17002'
+UWSGI_MODULE  = 'express:app'
+
+UWSGI_VIRTUALENV  = os.environ['VIRTUAL_ENV']
+UWSGI_PROCESSES = 1
+UWSGI_BUFFER_SIZE = 32768
+UWSGI_POST_BUFFERING = 4096
+UWSGI_GEVENT = 100
+UWSGI_MASTER = True
+UWSGI_SO_KEEPALIVE = True
+UWSGI_LISTEN = 100
