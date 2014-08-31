@@ -53,21 +53,12 @@ class BaseView(ModelView):
 
     def create_form(self, obj=None):
         form = super(BaseView, self).create_form(obj=obj)
-        if hasattr(form, 'account') and self.endpoint != 'vest':
-            form.account._get_object_list = lambda: self.vests
         if hasattr(form, 'csrf_enabled'):
             form.csrf_enabled = False
         return form
 
     def edit_form(self, obj=None):
         form = super(BaseView, self).edit_form(obj=obj)
-        # 后台只能操作自己的马甲
-        if hasattr(form, 'account') and self.endpoint != 'vest':
-            if obj.account.id not in [int(v[0]) for v in self.vests]:
-                form.account._get_object_list = lambda: [
-                                        (unicode(obj.account.id), obj.account)]
-            else:
-                form.account._get_object_list = lambda: self.vests
         if hasattr(form, 'csrf_enabled'):
             form.csrf_enabled = False
         return form

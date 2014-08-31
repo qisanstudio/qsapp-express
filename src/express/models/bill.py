@@ -61,8 +61,8 @@ class LogisticsModel(db.Model):
 class BillModel(db.Model):
     __tablename__ = 'bill'
 
-    uid = db.Column(db.CHAR(32), nullable=False,
-                    default=gen_uuid, primary_key=True)
+    id = db.Column(db.Integer(), nullable=False, primary_key=True)
+    account_uid = db.Column(db.CHAR(32), nullable=False)
     order_num = db.Column(db.Integer(), nullable=False, unique=True)
     address_id = db.Column(db.Integer(), db.ForeignKey('address.id'),
                            nullable=False)
@@ -78,7 +78,7 @@ class BillModel(db.Model):
 
     def as_dict(self):
         return {
-            'uid': self.uid,
+            'id': self.id,
             'order_num': self.order_num,
             'remark': self.remark,
             'address': self.address.as_dict(),
@@ -93,8 +93,7 @@ class ItemModel(db.Model):
     __tablename__ = 'item'
 
     id = db.Column(db.Integer(), nullable=False, primary_key=True)
-    bill_uid = db.Column(db.CHAR(32),
-                         db.ForeignKey('bill.uid'), nullable=False)
+    bill_id = db.Column(db.Integer(), db.ForeignKey('bill.id'), nullable=False)
     name = db.Column(db.Unicode(256), nullable=False)
     genre = db.Column(db.Unicode(64), nullable=False, index=True)
     dollar = db.Column(db.Integer(), nullable=True)
@@ -106,7 +105,7 @@ class ItemModel(db.Model):
 
     bill = db.relationship('BillModel',
                 backref=db.backref('items', lazy='joined', innerjoin=True),
-                primaryjoin='BillModel.uid==ItemModel.bill_uid',
+                primaryjoin='BillModel.id==ItemModel.bill_id',
                 foreign_keys='[BillModel.id]')
 
     def as_dict(self):

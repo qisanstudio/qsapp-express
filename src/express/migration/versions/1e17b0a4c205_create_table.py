@@ -52,6 +52,9 @@ def upgrade():
                             primary_key=True, unique=True),
         sa.Column(u'password_hash', sa.CHAR(length=40), nullable=False),
         sa.Column(u'password_salt', sa.CHAR(length=40), nullable=False),
+        sa.Column(u'date_last_signed_in', sa.DateTime(timezone=True),
+                                          server_default=sa.func.current_timestamp(),
+                                          nullable=False, index=True),
         sa.Column(u'date_created', sa.DateTime(timezone=True),
                                    server_default=sa.func.current_timestamp(),
                                    nullable=False, index=True),
@@ -80,8 +83,9 @@ def upgrade():
 
 
     op.create_table(u'bill',
-        sa.Column('uid', sa.CHAR(32), nullable=False, primary_key=True),
+        sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
         sa.Column('order_num', sa.Integer(), nullable=False, unique=True),
+        sa.Column('account_uid', sa.CHAR(32), nullable=False),
         sa.Column('genre', sa.Unicode(64), nullable=False, index=True),
         sa.Column('address_id', sa.Integer(),
                              sa.ForeignKey('address.id'), nullable=False),
@@ -94,8 +98,8 @@ def upgrade():
 
     op.create_table(u'item',
         sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
-        sa.Column('bill_uid', sa.CHAR(32),
-                  sa.ForeignKey('bill.uid'), nullable=False),
+        sa.Column('bill_id', sa.Integer(),
+                  sa.ForeignKey('bill.id'), nullable=False),
         sa.Column('name', sa.Unicode(256), nullable=False),
         sa.Column('genre', sa.Unicode(64), nullable=False, index=True),
         sa.Column('dollar', sa.Integer(), nullable=False),

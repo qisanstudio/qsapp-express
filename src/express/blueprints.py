@@ -1,4 +1,5 @@
-# -*- code: utf-8 -*-
-from __future__ import unicode_literals
+# -*- coding: utf-8 -*-
+
+from flask import Blueprint
 
 blueprint_www = Blueprint('views', __name__)
