@@ -81,9 +81,7 @@ class AccountModel(db.Model):
                              server_default=db.func.current_timestamp())
 
     role = db.relationship('RoleModel',
-                            backref=db.backref('accounts',
-                                                lazy='joined',
-                                                innerjoin=True),
+                            backref=db.backref('accounts', lazy='joined'),
                             primaryjoin='AccountModel.role_id==RoleModel.id',
                             foreign_keys='[RoleModel.id]')
 

@@ -1,116 +1,83 @@
-<!doctype html>
-<html lang="en" class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <title>起点快运</title>
-        <meta name="description" content="提供快捷方便的转运服务">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "www/base.html" %}
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link href="/favicon.ico" rel="shotcut icon">
-        <link rel="stylesheet" href="styles/vendor.css">
-        <link rel="stylesheet" href="{{ versioning('styles/main.css') }}">
+{% block nav %}
+    <nav id="nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{{ url_for('views.index') }}">
+                    <span class="glyphicon glyphicon-plane"></span>
+                    <img class="hide" alt="Brand" src="/favicon.ico">
+                </a>
+            </div>
 
-        <script src="{{ versioning('scripts/vendor/modernizr.js') }}"></script>
-    </head>
-    <body data-spy="scroll">
-        <!--[if lt IE 9]>
-            <script src="https://brokerage-static.s3.amazonaws.com/assets/html5shiv/html5shiv.js"></script>
-            <script src="https://brokerage-static.s3.amazonaws.com/assets/respond/respond.min.js"></script>
-            <script src="https://brokerage-static.s3.amazonaws.com/assets/robinhood/js/bind-polyfill.js"></script>
-        <![endif]-->
-        <nav id="nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
-             <div class="container-fluid">
+            <div class="collapse navbar-collapse navbar-left">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#service">业务介绍</a></li>
+                    <li class=""><a href="#query">快速查询</a></li>
+                    <li class=""><a href="#news">相关知识</a></li>
+                </ul>
+            </div>
 
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="{{ url_for('views.index') }}">
-                        <span class="glyphicon glyphicon-plane"></span>
-                        <img class="hide" alt="Brand" src="/favicon.ico">
-                    </a>
+            <form class="navbar-form navbar-right" action="{{ url_for('views.signup') }}" method="POST" role="signup">
+                <div class="form-group">
+                    <input type="邮箱" class="form-control" name="email" placeholder="邮箱">
                 </div>
-
-                <div class="collapse navbar-collapse navbar-left">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#service">业务介绍</a></li>
-                        <li class=""><a href="#query">快速查询</a></li>
-                        <li class=""><a href="#news">相关知识</a></li>
-                    </ul>
+                <div class="form-group">
+                    <input type="密码" class="form-control" name="password" placeholder="密码">
                 </div>
+                <button type="submit" class="btn btn-default">快速注册</button>
+            </form>
 
-                <form class="navbar-form navbar-right" action="{{ url_for('views.signup') }}" method="POST" role="signup">
-                    <div class="form-group">
-                        <input type="邮箱" class="form-control" name="email" placeholder="邮箱">
-                    </div>
-                    <div class="form-group">
-                        <input type="密码" class="form-control" name="password" placeholder="密码">
-                    </div>
-                   <button type="submit" class="btn btn-default">快速注册</button>
-                </form>
-
-            </div>
-        </nav>
-
-        <div id="slide" data-target="#nav" data-offset="0">
-            <div id="service" class="jumbotron">
-                <h1>服务项目</h1>
-                <p>服务项目</p>
-                <p>服务项目</p>
-                <p>服务项目</p>
-                <p>服务项目</p>
-                <p>服务项目</p>
-                <p><a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#loginform">点击登录</a></p>
-            </div>
-            <div id="query" class="jumbotron">
-                <h1>货单查询</h1>
-                <p>点击可查询</p>
-                <p>点击可查询</p>
-                <p>点击可查询</p>
-                <p>点击可查询</p>
-                <p>点击可查询</p>
-                <p><a class="btn btn-primary btn-lg" role="button">点击查询</a></p>
-            </div>
-            <div id="news" class="jumbotron">
-                <h1>新闻报道</h1>
-                <p>新闻报道</p>
-                <p><a class="btn btn-primary btn-lg" role="button">更多</a></p>
-            </div>
         </div>
+    </nav>
+{% endblock %}
 
-        <div class="modal fade" id="loginform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">登录</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="" action="{{ url_for('views.login') }}" method="POST" role="login">
-                            <div class="form-group">
-                                <input type="邮箱" class="form-control" name="email" placeholder="邮箱">
-                            </div>
-                            <div class="form-group">
-                                <input type="密码" class="form-control" name="password" placeholder="密码">
-                            </div>
-                            <button type="submit" class="btn btn-primary">登录</button>
-                        </form>
-                    </div>
+{% block main %}
+    <div id="slide" data-target="#nav" data-offset="0">
+        <div id="service" class="jumbotron">
+            <h1>服务项目</h1>
+            <p>服务项目</p>
+            <p>服务项目</p>
+            <p>服务项目</p>
+            <p>服务项目</p>
+            <p>服务项目</p>
+            <p><a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#loginform">点击登录</a></p>
+        </div>
+        <div id="query" class="jumbotron">
+            <h1>货单查询</h1>
+            <p>点击可查询</p>
+            <p>点击可查询</p>
+            <p>点击可查询</p>
+            <p>点击可查询</p>
+            <p>点击可查询</p>
+            <p><a class="btn btn-primary btn-lg" role="button">点击查询</a></p>
+        </div>
+        <div id="news" class="jumbotron">
+            <h1>新闻报道</h1>
+            <p>新闻报道</p>
+            <p><a class="btn btn-primary btn-lg" role="button">更多</a></p>
+        </div>
+    </div>
+
+    <div class="modal fade" id="loginform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">登录</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="" action="{{ url_for('views.login') }}" method="POST" role="login">
+                        <div class="form-group">
+                            <input type="邮箱" class="form-control" name="email" placeholder="邮箱">
+                        </div>
+                        <div class="form-group">
+                            <input type="密码" class="form-control" name="password" placeholder="密码">
+                        </div>
+                        <button type="submit" class="btn btn-primary">登录</button>
+                    </form>
                 </div>
             </div>
         </div>
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
-
-        <script src="scripts/vendor.js"></script>
-        <script src="{{ versioning('scripts/vendor.js') }}"></script>
-        <script src="{{ versioning('scripts/plugins.js') }}"></script>
-        <script src="{{ versioning('scripts/main.js') }}"></script>
-</body>
-</html>
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>起点快运</title>
+        <meta name="description" content="提供快捷方便的转运服务">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="/favicon.ico" rel="shotcut icon">
+        <link rel="stylesheet" href="styles/vendor.css">
+        <link rel="stylesheet" href="{{ versioning('styles/main.css') }}">
+        <script src="{{ versioning('scripts/vendor/modernizr.js') }}"></script>
+        {% block head %}
+        {% endblock %}
+    </head>
+    <body data-spy="scroll">
+        <!--[if lt IE 9]>
+            <script src="https://brokerage-static.s3.amazonaws.com/assets/html5shiv/html5shiv.js"></script>
+            <script src="https://brokerage-static.s3.amazonaws.com/assets/respond/respond.min.js"></script>
+            <script src="https://brokerage-static.s3.amazonaws.com/assets/robinhood/js/bind-polyfill.js"></script>
+        <![endif]-->
+        {% block nav %}
+        {% endblock %}
+
+        {% block main %}
+        {% endblock %}
+
+        {% block foot %}
+        {% endblock %}        
+
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <script src="{{ versioning('scripts/vendor.js') }}"></script>
+        <script src="{{ versioning('scripts/plugins.js') }}"></script>
+        <script src="{{ versioning('scripts/main.js') }}"></script>
+        {% block script %}
+        {% endblock %}
+</body>
+</html>

@@ -7,6 +7,8 @@ from flask import (request, views, flash, redirect,
 from express.blueprints import blueprint_www
 from express.models.account import AccountModel, EmailModel
 
+from . import forms
+
 
 class SignUpView(views.MethodView):
     '''
@@ -23,7 +25,11 @@ class LoginView(views.MethodView):
     '''
 
     def post(self):
-    	flash("login failure!")
+        form = forms.LogInForm(request.form)
+        if not form.validate():
+            flash("login failure!")
+            return make_response('email/sign_up', 400, form=form)
+
     	return redirect(url_for("views.index"))
 
 

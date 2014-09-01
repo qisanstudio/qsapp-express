@@ -72,7 +72,7 @@ class BillModel(db.Model):
                              server_default=db.func.current_timestamp())
 
     address = db.relationship('AddressModel',
-                backref=db.backref('bills', lazy='joined', innerjoin=True),
+                backref=db.backref('bills', lazy='joined'),
                 primaryjoin='AddressModel.id==BillModel.address_id',
                 foreign_keys='[AddressModel.id]')
 
