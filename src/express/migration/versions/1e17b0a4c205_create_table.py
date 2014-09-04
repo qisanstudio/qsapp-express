@@ -62,6 +62,7 @@ def upgrade():
     # bill
     op.create_table(u'address',
         sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
+        sa.Column('account_uid', sa.CHAR(32), nullable=False),
         sa.Column('real_name', sa.Unicode(64), nullable=False, index=True),
         sa.Column('mobile', sa.Unicode(32), nullable=False),
         sa.Column('code', sa.Unicode(32), nullable=False),

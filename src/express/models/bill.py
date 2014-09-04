@@ -21,8 +21,8 @@ SerialIdSeq = db.Sequence('serial_id_seq')
 
 
 def serial_id_nextval():
-    with db.disable_slaves():
-        return db.session.execute(SerialIdSeq)
+    # with db.disable_slaves():
+    return db.session.execute(SerialIdSeq)
 
 
 def serial_key_generator():
@@ -36,6 +36,7 @@ class AddressModel(db.Model):
     __tablename__ = 'address'
 
     id = db.Column(db.Integer(), nullable=False, primary_key=True)
+    account_uid = db.Column(db.CHAR(32), nullable=False)
     real_name = db.Column(db.Unicode(64), nullable=False, index=True)
     mobile = db.Column(db.Unicode(32), nullable=False)
     code = db.Column(db.Unicode(32), nullable=False)
@@ -92,12 +93,17 @@ class BillModel(db.Model):
     address = db.relationship('AddressModel',
                 backref=db.backref('bills', lazy='joined'),
                 primaryjoin='AddressModel.id==BillModel.address_id',
-                foreign_keys='[AddressModel.id]')
+                uselist=False, foreign_keys='[AddressModel.id]')
+
+    bill = db.relationship('BillModel',
+                backref=db.backref('items', lazy='joined', innerjoin=True),
+                primaryjoin='BillModel.id==ItemModel.bill_id',
+                foreign_keys='[BillModel.id]')
 
     def as_dict(self):
         return {
             'id': self.id,
-            'order_num': self.order_num,
+            'serial_num': self.serial_num,
             'remark': self.remark,
             'address': self.address.as_dict(),
             'date_created': self.date_created.isoformat(),
@@ -120,11 +126,6 @@ class ItemModel(db.Model):
     date_created = db.Column(db.DateTime(timezone=True),
                              nullable=False, index=True,
                              server_default=db.func.current_timestamp())
-
-    bill = db.relationship('BillModel',
-                backref=db.backref('items', lazy='joined', innerjoin=True),
-                primaryjoin='BillModel.id==ItemModel.bill_id',
-                foreign_keys='[BillModel.id]')
 
     def as_dict(self):
         return {

@@ -7,7 +7,7 @@ from .bill import Address, Logistics, Bill, Item
 from flask.ext.admin import Admin
 
 
-admin = Admin(name='起点快运后台', url='/admin')
+admin = Admin(name='起点速递后台', url='/admin')
 
 # 账户管理
 admin.add_view(Role(name='角色',

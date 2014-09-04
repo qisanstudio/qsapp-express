@@ -53,7 +53,7 @@ class Logistics(BaseView):
 class Bill(BaseView):
     perm = 'bill'
 
-    column_list = ['id', 'order_num', 'remark', 'date_created']
+    column_list = ['id', 'serial_num', 'remark', 'date_created']
     column_default_sort = ('date_created', True)
 
     def __init__(self, **kwargs):
@@ -62,14 +62,14 @@ class Bill(BaseView):
     def create_form(self, obj=None):
         form = super(Bill, self).create_form(obj=obj)
         delattr(form, 'date_created')
-        delattr(form, 'order_num')
+        delattr(form, 'serial_num')
         delattr(form, 'items')
         return form
 
     def edit_form(self, obj=None):
         form = super(Bill, self).edit_form(obj=obj)
         delattr(form, 'date_created')
-        delattr(form, 'order_num')
+        delattr(form, 'serial_num')
         delattr(form, 'items')
         return form
 

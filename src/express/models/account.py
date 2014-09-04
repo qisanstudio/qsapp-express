@@ -85,6 +85,11 @@ class AccountModel(db.Model):
                             primaryjoin='AccountModel.role_id==RoleModel.id',
                             foreign_keys='[RoleModel.id]')
 
+    addresses = db.relationship('AddressModel',
+                                backref=db.backref('account', lazy='joined'),
+                                primaryjoin='AddressModel.account_uid==AccountModel.uid',
+                                foreign_keys='[AddressModel.id]')
+
     @locked_cached_property
     def privileges(self):
         return [p.code for p in self.role.privileges]
@@ -94,6 +99,7 @@ class AccountModel(db.Model):
             'uid': self.uid,
             'nickname': self.nickname,
             'role': self.role.as_dict(),
+            'addresses': [address.as_dict() for address in self.addresses],
             'date_created': self.date_created,
         }
 
