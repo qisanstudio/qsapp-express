@@ -6,26 +6,28 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="{{ url_for('views.index') }}">
                     <span class="glyphicon glyphicon-plane"></span>
-                    <img class="hide" alt="Brand" src="/favicon.ico">
+                    <img class="hide" alt="Brand" height="24" src="{{ versioning('favicon.ico') }}">
                 </a>
             </div>
 
             <div class="collapse navbar-collapse navbar-left">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#service">业务介绍</a></li>
-                    <li class=""><a href="#query">快速查询</a></li>
-                    <li class=""><a href="#news">相关知识</a></li>
+                    <li class=""><a>收费标准</a></li>
+                    <li class=""><a>免责赔偿</a></li>
+                    <li class=""><a>相关知识</a></li>
+                    <li class=""><a>联系我们</a></li>
                 </ul>
             </div>
 
-            <form class="navbar-form navbar-right" action="{{ url_for('views.signup') }}" method="POST" role="signup">
+            <form class="navbar-form form-inline navbar-right" action="{ url_for('views.search') }}" method="POST" role="search">
                 <div class="form-group">
-                    <input type="邮箱" class="form-control" name="email" placeholder="邮箱">
+                    <div class="input-group">
+                        <input type="search" class="form-control" placeholder="单号">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="密码" class="form-control" name="password" placeholder="密码">
-                </div>
-                <button type="submit" class="btn btn-default">快速注册</button>
             </form>
 
         </div>
@@ -33,9 +35,9 @@
 {% endblock %}
 
 {% block main %}
-    <div id="slide" data-target="#nav" data-offset="0">
+    <div id="slide" data-target="#nav" data-offset="0" class="">
         <div id="service" class="jumbotron">
-            <h1>服务项目</h1>
+            <h1>解决方案</h1>
             <p>服务项目</p>
             <p>服务项目</p>
             <p>服务项目</p>
@@ -44,7 +46,7 @@
             <p><a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#loginform">点击登录</a></p>
         </div>
         <div id="query" class="jumbotron">
-            <h1>货单查询</h1>
+            <h1>我们承诺</h1>
             <p>点击可查询</p>
             <p>点击可查询</p>
             <p>点击可查询</p>

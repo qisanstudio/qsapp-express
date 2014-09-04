@@ -3,8 +3,10 @@
 from __future__ import unicode_literals
 
 
+from flask import current_app as app
 from studio.core.engines import db
 from studio.core.flask.helpers import gen_uuid
+from studio.core.contribs import feistel, base62
 
 
 __all__ = [
@@ -13,6 +15,21 @@ __all__ = [
     'BillModel',
     'ItemModel',
 ]
+
+
+SerialIdSeq = db.Sequence('serial_id_seq')
+
+
+def serial_id_nextval():
+    with db.disable_slaves():
+        return db.session.execute(SerialIdSeq)
+
+
+def serial_key_generator():
+    orig_id = serial_id_nextval()
+    fei = feistel.Feistel(
+        app.config['FEISTEL_PRIVATE_KEY'], bits=128)
+    return base62.base62_encode(fei.encrypt(orig_id))
 
 
 class AddressModel(db.Model):
@@ -63,7 +80,8 @@ class BillModel(db.Model):
 
     id = db.Column(db.Integer(), nullable=False, primary_key=True)
     account_uid = db.Column(db.CHAR(32), nullable=False)
-    order_num = db.Column(db.Integer(), nullable=False, unique=True)
+    serial_num = db.Column(db.CHAR(32), default=serial_key_generator, 
+                           nullable=False, unique=True)
     address_id = db.Column(db.Integer(), db.ForeignKey('address.id'),
                            nullable=False)
     remark = db.Column(db.UnicodeText(), nullable=True)

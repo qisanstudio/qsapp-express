@@ -18,3 +18,7 @@ UWSGI_GEVENT = 100
 UWSGI_MASTER = True
 UWSGI_SO_KEEPALIVE = True
 UWSGI_LISTEN = 100
+UWSGI_IMPORT = 'studio.core.monkey'  # 应用启动前的 monkey patch
+
+
+FEISTEL_PRIVATE_KEY = 'bdc79d8bd2224065a9fab628d1fab3ac'

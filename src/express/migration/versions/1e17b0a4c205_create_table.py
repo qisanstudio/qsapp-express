@@ -82,9 +82,12 @@ def upgrade():
     )
 
 
+    sa.Sequence('serial_id_seq').create(bind=op.get_bind())
+
+
     op.create_table(u'bill',
         sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
-        sa.Column('order_num', sa.Integer(), nullable=False, unique=True),
+        sa.Column('serial_num', sa.CHAR(32), nullable=False, unique=True),
         sa.Column('account_uid', sa.CHAR(32), nullable=False),
         sa.Column('genre', sa.Unicode(64), nullable=False, index=True),
         sa.Column('address_id', sa.Integer(),
@@ -122,3 +125,4 @@ def downgrade():
     op.drop_table(u'bill')
     op.drop_table(u'logistics')
     op.drop_table(u'address')
+    sa.Sequence('shorten_id_seq').drop(bind=op.get_bind())
