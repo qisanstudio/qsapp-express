@@ -36,7 +36,9 @@ class AddressModel(db.Model):
     __tablename__ = 'address'
 
     id = db.Column(db.Integer(), nullable=False, primary_key=True)
-    account_uid = db.Column(db.CHAR(32), nullable=False)
+    account_uid = db.Column(db.CHAR(32),
+                            db.ForeignKey('account.uid'),
+                            nullable=False)
     real_name = db.Column(db.Unicode(64), nullable=False, index=True)
     mobile = db.Column(db.Unicode(32), nullable=False)
     code = db.Column(db.Unicode(32), nullable=False)
@@ -80,8 +82,10 @@ class BillModel(db.Model):
     __tablename__ = 'bill'
 
     id = db.Column(db.Integer(), nullable=False, primary_key=True)
-    account_uid = db.Column(db.CHAR(32), nullable=False)
-    serial_num = db.Column(db.CHAR(32), default=serial_key_generator, 
+    account_uid = db.Column(db.CHAR(32),
+                            db.ForeignKey('account.uid'),
+                            nullable=False)
+    serial_num = db.Column(db.CHAR(32), default=serial_key_generator,
                            nullable=False, unique=True)
     address_id = db.Column(db.Integer(), db.ForeignKey('address.id'),
                            nullable=False)
@@ -95,10 +99,10 @@ class BillModel(db.Model):
                 primaryjoin='AddressModel.id==BillModel.address_id',
                 uselist=False, foreign_keys='[AddressModel.id]')
 
-    bill = db.relationship('BillModel',
-                backref=db.backref('items', lazy='joined', innerjoin=True),
+    items = db.relationship('ItemModel',
+                backref=db.backref('bill', lazy='joined', innerjoin=True),
                 primaryjoin='BillModel.id==ItemModel.bill_id',
-                foreign_keys='[BillModel.id]')
+                foreign_keys='[ItemModel.bill_id]')
 
     def as_dict(self):
         return {

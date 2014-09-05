@@ -87,8 +87,9 @@ class AccountModel(db.Model):
 
     addresses = db.relationship('AddressModel',
                                 backref=db.backref('account', lazy='joined'),
-                                primaryjoin='AddressModel.account_uid==AccountModel.uid',
-                                foreign_keys='[AddressModel.id]')
+                                primaryjoin='AddressModel.account_uid'
+                                            '==AccountModel.uid',
+                                foreign_keys='[AddressModel.account_uid]')
 
     @locked_cached_property
     def privileges(self):
@@ -156,8 +157,8 @@ class EmailModel(db.Model):
         return _base64_encode(result), _base64_encode(salt)
 
     @classmethod
-    def is_address_avaliable(cls, address):
-        query = cls.query.filter(db.func.lower(cls.address)==address.lower())
+    def is_email_avaliable(cls, email):
+        query = cls.query.filter(db.func.lower(cls.email)==email.lower())
         return not query.count()
 
     def as_dict(self):

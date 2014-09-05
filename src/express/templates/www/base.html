@@ -2,11 +2,11 @@
 <html lang="en" class="no-js">
     <head>
         <meta charset="utf-8">
-        <title>起点快运</title>
+        <title>{% block title %}起点快运{% endblock %}</title>
         <meta name="description" content="提供快捷方便的转运服务">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href="{{ versioning('favicon.ico') }}" rel="shotcut icon">
+        <link href="{{ versioning('fav.ico') }}" rel="shotcut icon">
         <link rel="stylesheet" href="styles/vendor.css">
         <link rel="stylesheet" href="{{ versioning('styles/main.css') }}">
         <script src="{{ versioning('scripts/vendor/modernizr.js') }}"></script>
@@ -26,7 +26,7 @@
         {% endblock %}
 
         {% block foot %}
-        {% endblock %}        
+        {% endblock %}
 
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

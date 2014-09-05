@@ -6,16 +6,18 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="{{ url_for('views.index') }}">
                     <span class="glyphicon glyphicon-plane"></span>
-                    <img class="hide" alt="Brand" height="24" src="{{ versioning('favicon.ico') }}">
+                    <img class="hide" alt="Brand" height="24" src="{{ versioning('fav.ico') }}">
                 </a>
             </div>
 
             <div class="collapse navbar-collapse navbar-left">
                 <ul class="nav navbar-nav">
-                    <li class=""><a>收费标准</a></li>
-                    <li class=""><a>免责赔偿</a></li>
-                    <li class=""><a>相关知识</a></li>
-                    <li class=""><a>联系我们</a></li>
+                    <li class=""><a href="#service">解决方案</a></li>
+                    <li class=""><a href="#charge">收费标准</a></li>
+                    <li class=""><a href="#indemnify">免责赔偿</a></li>
+                    <li class=""><a href="/knowledge">相关知识</a></li>
+                    <li class=""><a href="/bill/search">批量查询</a></li>
+                    <li class=""><a data-toggle="modal" data-target="#contact">联系我们</a></li>
                 </ul>
             </div>
 
@@ -38,46 +40,36 @@
     <div id="slide" data-target="#nav" data-offset="0" class="">
         <div id="service" class="jumbotron">
             <h1>解决方案</h1>
-            <p>服务项目</p>
-            <p>服务项目</p>
-            <p>服务项目</p>
-            <p>服务项目</p>
-            <p>服务项目</p>
-            <p><a class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#loginform">点击登录</a></p>
+            <p>介绍</p>
+            <p><a href="/signup">注册</a></p>
+            <p><a href="/signin">登录</a></p>
+            <p><a class="btn btn-primary btn-lg" role="button" href="/service">详情</a></p>
         </div>
-        <div id="query" class="jumbotron">
-            <h1>我们承诺</h1>
+        <div id="charge" class="jumbotron">
+            <h1>收费标准</h1>
             <p>点击可查询</p>
             <p>点击可查询</p>
             <p>点击可查询</p>
             <p>点击可查询</p>
             <p>点击可查询</p>
-            <p><a class="btn btn-primary btn-lg" role="button">点击查询</a></p>
+            <p><a class="btn btn-primary btn-lg" role="button" href="/charge">详情</a></p>
         </div>
-        <div id="news" class="jumbotron">
-            <h1>新闻报道</h1>
-            <p>新闻报道</p>
-            <p><a class="btn btn-primary btn-lg" role="button">更多</a></p>
+        <div id="indemnify" class="jumbotron">
+            <h1>免责赔偿</h1>
+            <p><a class="btn btn-primary btn-lg" role="button" href="/indemnify">详情</a></p>
         </div>
     </div>
 
-    <div class="modal fade" id="loginform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">登录</h4>
+                    <h4 class="modal-title" id="myModalLabel">联系方式</h4>
                 </div>
                 <div class="modal-body">
-                    <form class="" action="{{ url_for('views.login') }}" method="POST" role="login">
-                        <div class="form-group">
-                            <input type="邮箱" class="form-control" name="email" placeholder="邮箱">
-                        </div>
-                        <div class="form-group">
-                            <input type="密码" class="form-control" name="password" placeholder="密码">
-                        </div>
-                        <button type="submit" class="btn btn-primary">登录</button>
-                    </form>
+                    <p>sdddddddddddddddddddddddddd</p>
+                    <a class="btn btn-default">点击复制</a>
                 </div>
             </div>
         </div>
