@@ -2,7 +2,8 @@
 from __future__ import unicode_literals
 
 from datetime import datetime
-from flask import views, url_for, redirect, render_template, request, flash
+from flask import (views, url_for, redirect,
+					render_template, request, flash, session)
 from studio.core.engines import db
 from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 from express.blueprints import blueprint_www
@@ -40,7 +41,33 @@ class SignUpView(views.MethodView):
 		return render_template('www/signup.html', form=form)
 
 	def post(self):
-		return 'ok'
+		form = forms.SignUpForm(request.form)
+		if not form.validate():
+			for _, es in form.errors.items():
+				map(lambda e: flash(e), es)
+			return redirect(url_for('views.signup'))
+		nickname = form.nickname.data
+		email = form.email.data
+		password = form.password.data
+		repeat_password = form.repeat_password.data
+		email_obj = _get_email_obj(email)
+
+		if email_obj:
+			flash('Email had been used')
+			return redirect(url_for('views.signup'))
+		account = AccountModel(nickname=nickname)
+		account.email = EmailModel(email=email,
+									password=password)
+		db.session.add(account)
+		try:
+			db.session.commit()
+		except Exception, e:
+			db.session.rollback()
+			flash('Create account failed, reason is %s' % str(e))
+			return redirect(url_for('views.signup'))
+		session['sign_in_account'] = account.uid
+
+		return redirect(url_for('views.home'))
 
 
 class SignInView(views.MethodView):
@@ -55,8 +82,8 @@ class SignInView(views.MethodView):
 		if not form.validate():
 			flash('login error')
 			return redirect(url_for('views.signin'))
-		email = form.email.data
-		password = form.password.data
+		email = form.email.data.strip()
+		password = form.password.data.strip()
 		permanent = form.permanent.data
 		email_obj = _get_email_obj(email)
 
@@ -64,21 +91,30 @@ class SignInView(views.MethodView):
 		if email_obj:
 			password_hash, _ = EmailModel.encrypt_password(
 										password, email_obj.password_salt)
-			if email.password_hash != password_hash:
-				raise
-			email.date_last_signed_in = datetime.now()
+			if email_obj.password != password_hash:
+				flash('邮箱或密码错误，请重新登录！')
+				return redirect(url_for('views.signin'))
+			email_obj.date_last_signed_in = datetime.now()
 			db.session.commit()
-#       session['sign_in_account'] = email.account.uid
+		session['sign_in_account'] = email_obj.account.uid
 		return redirect(url_for('views.home'))
 
 
-class SignoutView(views.MethodView):
+class SignoutView(views.View):
 	'''
 		退出
 	'''
 
-	def get(self):
-		return 'ok'
+	def dispatch_request(self, uid):
+		sess_uid = session.get('sign_in_account')
+		resp = redirect(url_for('views.index'))
+		if sess_uid != uid and sess_uid is not None:
+			return resp  # 静默处理
+		session.pop('sign_in_account', None)
+		session.clear()
+
+		resp.set_cookie('sign_in_account', max_age=0)
+		return resp
 
 
 blueprint_www.add_url_rule('/home',
@@ -90,6 +126,6 @@ blueprint_www.add_url_rule('/signup',
 blueprint_www.add_url_rule('/signin',
 							view_func=SignInView.as_view(b'signin'),
 							endpoint='signin', methods=['GET', 'POST'])
-blueprint_www.add_url_rule('/signout',
+blueprint_www.add_url_rule('/signout/<string:uid>/',
 							view_func=SignoutView.as_view(b'signout'),
-							endpoint='signout', methods=['POST'])
+							endpoint='signout', methods=['GET'])

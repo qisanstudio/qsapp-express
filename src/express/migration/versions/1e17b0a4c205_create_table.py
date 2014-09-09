@@ -39,8 +39,7 @@ def upgrade():
     op.create_table(u'account',
         sa.Column('uid', sa.CHAR(32), nullable=False, primary_key=True),
         sa.Column(u'nickname', sa.Unicode(256), nullable=False),
-        sa.Column('role_id', sa.Integer(),
-                             sa.ForeignKey('role.id'), nullable=False),
+        sa.Column('role_id', sa.Integer(), sa.ForeignKey('role.id')),
         sa.Column('date_created', sa.DateTime(timezone=True), index=True,
                                   server_default=sa.func.current_timestamp()),
         sa.PrimaryKeyConstraint('uid'),
@@ -50,8 +49,8 @@ def upgrade():
                          nullable=False, primary_key=True, unique=True),
         sa.Column(u'email', sa.String(length=256), nullable=False,
                             primary_key=True, unique=True),
-        sa.Column(u'password_hash', sa.CHAR(length=40), nullable=False),
-        sa.Column(u'password_salt', sa.CHAR(length=40), nullable=False),
+        sa.Column(u'password_hash', sa.CHAR(length=64), nullable=False),
+        sa.Column(u'password_salt', sa.CHAR(length=64), nullable=False),
         sa.Column(u'date_last_signed_in', sa.DateTime(timezone=True),
                                           server_default=sa.func.current_timestamp(),
                                           nullable=False, index=True),
@@ -121,13 +120,13 @@ def upgrade():
 
 
 def downgrade():
+    op.drop_table(u'item')
+    op.drop_table(u'bill')
+    op.drop_table(u'logistics')
+    op.drop_table(u'address')
     op.drop_table(u'role_privilege')
     op.drop_table(u'privilege')
     op.drop_table(u'email')
     op.drop_table(u'account')
     op.drop_table(u'role')
-    op.drop_table(u'item')
-    op.drop_table(u'bill')
-    op.drop_table(u'logistics')
-    op.drop_table(u'address')
     sa.Sequence('shorten_id_seq').drop(bind=op.get_bind())

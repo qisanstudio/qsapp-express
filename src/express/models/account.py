@@ -74,11 +74,15 @@ class AccountModel(db.Model):
                                  default=gen_uuid,
                                  primary_key=True)
     nickname = db.Column(db.Unicode(256), nullable=False)
-    role_id = db.Column(db.Integer(), db.ForeignKey('role.id'),
-                        nullable=False)
+    role_id = db.Column(db.Integer(), db.ForeignKey('role.id'))
     date_created = db.Column(db.DateTime(timezone=True),
                              nullable=False, index=True,
                              server_default=db.func.current_timestamp())
+
+    email = db.relationship('EmailModel',
+            backref=db.backref('account'),
+            primaryjoin='AccountModel.uid==EmailModel.uid',
+            uselist=False, passive_deletes=True)
 
     role = db.relationship('RoleModel',
                             backref=db.backref('accounts', lazy='joined'),
@@ -91,18 +95,26 @@ class AccountModel(db.Model):
                                             '==AccountModel.uid',
                                 foreign_keys='[AddressModel.account_uid]')
 
+    bills = db.relationship('BillModel',
+                            backref=db.backref('account', lazy='joined'),
+                            primaryjoin='BillModel.account_uid'
+                                        '==AccountModel.uid',
+                            foreign_keys='[BillModel.account_uid]')
+
     @locked_cached_property
     def privileges(self):
         return [p.code for p in self.role.privileges]
 
     def as_dict(self):
-        return {
+        result = {
             'uid': self.uid,
             'nickname': self.nickname,
-            'role': self.role.as_dict(),
             'addresses': [address.as_dict() for address in self.addresses],
             'date_created': self.date_created,
         }
+        if self.role:
+            result['role'] = self.role.as_dict()
+        return result
 
     def __str__(self):
         return self.nickname
@@ -111,7 +123,7 @@ class AccountModel(db.Model):
 class EmailModel(db.Model):
     __tablename__ = 'email'
 
-    uid = db.Column(db.Integer(), db.ForeignKey('account.uid'),
+    uid = db.Column(db.CHAR(32), db.ForeignKey('account.uid'),
                     primary_key=True, nullable=False)
     email = db.Column(db.String(256), nullable=False,
                       primary_key=True, index=True)
@@ -129,7 +141,7 @@ class EmailModel(db.Model):
 
     @hybrid_property
     def password(self):
-        return self.password_hash
+        return self.password_hash.strip()
 
     @password.setter
     def password_setter(self, value):

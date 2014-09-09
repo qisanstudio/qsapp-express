@@ -22,11 +22,28 @@
         {% block nav %}
         {% endblock %}
 
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+                <li class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <strong>警告</strong> {{ message }}
+                </li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <div class="main">
         {% block main %}
         {% endblock %}
+        </div>
 
+        <div class="foot">
         {% block foot %}
         {% endblock %}
+        </div>
 
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=

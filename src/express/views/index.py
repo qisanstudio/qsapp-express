@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import re
-from flask import request, views, render_template
+from flask import views, render_template
 from express.blueprints import blueprint_www
 
 

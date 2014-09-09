@@ -5,7 +5,6 @@ from __future__ import unicode_literals
 
 from flask import current_app as app
 from studio.core.engines import db
-from studio.core.flask.helpers import gen_uuid
 from studio.core.contribs import feistel, base62
 
 
@@ -85,6 +84,7 @@ class BillModel(db.Model):
     account_uid = db.Column(db.CHAR(32),
                             db.ForeignKey('account.uid'),
                             nullable=False)
+    genre = db.Column(db.Unicode(64), nullable=False, index=True)
     serial_num = db.Column(db.CHAR(32), default=serial_key_generator,
                            nullable=False, unique=True)
     address_id = db.Column(db.Integer(), db.ForeignKey('address.id'),
@@ -97,7 +97,7 @@ class BillModel(db.Model):
     address = db.relationship('AddressModel',
                 backref=db.backref('bills', lazy='joined'),
                 primaryjoin='AddressModel.id==BillModel.address_id',
-                uselist=False, foreign_keys='[AddressModel.id]')
+                uselist=False)
 
     items = db.relationship('ItemModel',
                 backref=db.backref('bill', lazy='joined', innerjoin=True),
@@ -108,13 +108,14 @@ class BillModel(db.Model):
         return {
             'id': self.id,
             'serial_num': self.serial_num,
+            'genre': self.genre,
             'remark': self.remark,
             'address': self.address.as_dict(),
             'date_created': self.date_created.isoformat(),
         }
 
     def __str__(self):
-        return self.order_num
+        return self.serial_num
 
 
 class ItemModel(db.Model):

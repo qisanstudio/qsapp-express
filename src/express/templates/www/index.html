@@ -21,10 +21,10 @@
                 </ul>
             </div>
 
-            <form class="navbar-form form-inline navbar-right" action="{ url_for('views.search') }}" method="POST" role="search">
+            <form class="navbar-form form-inline navbar-right" action="{{ url_for('views.bill_search') }}" method="POST" role="search">
                 <div class="form-group">
                     <div class="input-group">
-                        <input type="search" class="form-control" placeholder="单号">
+                        <input type="search" name="serial_num" class="form-control" placeholder="单号">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                         </span>
