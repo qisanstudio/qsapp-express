@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from flask import request
 from datetime import datetime
 
 from flask.ext.admin.actions import action
@@ -20,7 +21,11 @@ class BaseView(ModelView):
     form_ajax_refs = None
 
     def is_accessible(self):
-        return True
+        return self.perm in request.current_user['privileges']
+
+    @property
+    def perm(self):
+        return self.model.__tablename__
 
     @action('delete', '删除', '确定选中的删除吗')
     def action_delete(self, ids):

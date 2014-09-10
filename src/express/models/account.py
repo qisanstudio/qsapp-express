@@ -6,6 +6,7 @@ import os
 import base64
 import hashlib
 from hmac import HMAC
+from flask import current_app as app
 from flask.helpers import locked_cached_property
 from sqlalchemy.ext.hybrid import hybrid_property
 
@@ -103,7 +104,10 @@ class AccountModel(db.Model):
 
     @locked_cached_property
     def privileges(self):
-        return [p.code for p in self.role.privileges]
+        if self.email.email in app.config['ADMINS_EMAIL']:
+            return db.session.query(PrivilegeModel.code).all()
+        else:
+            return [p.code for p in self.role.privileges]
 
     def as_dict(self):
         result = {

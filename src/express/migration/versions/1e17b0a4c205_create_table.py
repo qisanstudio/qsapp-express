@@ -14,14 +14,7 @@ from alembic import op
 import sqlalchemy as sa
 
 
-def upgrade():
-    # account
-    op.create_table(u'role',
-        sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
-        sa.Column('title', sa.Unicode(length=64), nullable=False, unique=True),
-        sa.PrimaryKeyConstraint('id'),
-    )
-    op.create_table(u'privilege',
+_privilege_table = (u'privilege',
         sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
         sa.Column('code', sa.CHAR(64), nullable=False, unique=True),
         sa.Column('description', sa.Unicode(length=64), nullable=False),
@@ -29,6 +22,16 @@ def upgrade():
                         server_default=sa.func.current_timestamp()),
         sa.PrimaryKeyConstraint('id'),
     )
+
+
+def upgrade():
+    # account
+    op.create_table(u'role',
+        sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
+        sa.Column('title', sa.Unicode(length=64), nullable=False, unique=True),
+        sa.PrimaryKeyConstraint('id'),
+    )
+    op.create_table(*_privilege_table)
     op.create_table(u'role_privilege',
         sa.Column('role_id', sa.Integer(), nullable=False,
                              primary_key=True, index=True),
@@ -117,6 +120,16 @@ def upgrade():
                                    server_default=sa.func.current_timestamp(),
                                    nullable=False, index=True),
     )
+    privilege_datas = [{'code': 'role', 'description': '角色'},
+                        {'code': 'account', 'description': '账户'},
+                        {'code': 'email', 'description': '邮箱'},
+                        {'code': 'privilege', 'description': '权限'},
+                        {'code': 'address', 'description': '地址'},
+                        {'code': 'logistics', 'description': '物流'},
+                        {'code': 'bill', 'description': '订单'},
+                        {'code': 'item', 'description': '货物'}]
+    privilege_table = sa.sql.table(*_privilege_table[:-1])
+    op.bulk_insert(privilege_table, privilege_datas)
 
 
 def downgrade():

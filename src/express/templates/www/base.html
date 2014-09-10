@@ -20,6 +20,41 @@
             <script src="https://brokerage-static.s3.amazonaws.com/assets/robinhood/js/bind-polyfill.js"></script>
         <![endif]-->
         {% block nav %}
+        <nav id="nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ url_for('views.index') }}">
+                        <span class="glyphicon glyphicon-plane"></span>
+                        <img class="hide" alt="Brand" height="24" src="{{ versioning('fav.ico') }}">
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-left">
+                    <ul class="nav navbar-nav">
+                        {% block navitems %}
+                        <li class=""><a href="#service">解决方案</a></li>
+                        <li class=""><a href="#charge">收费标准</a></li>
+                        <li class=""><a href="#indemnify">免责赔偿</a></li>
+                        <li class=""><a href="/knowledge">相关知识</a></li>
+                        <li class=""><a href="/bill/search">批量查询</a></li>
+                        <li class=""><a data-toggle="modal" data-target="#contact">联系我们</a></li>
+                        {% endblock %}
+                    </ul>
+                </div>
+
+                <form class="navbar-form form-inline navbar-right" action="{{ url_for('views.bill_search') }}" method="POST" role="search">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="search" name="serial_num" class="form-control" placeholder="单号">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </nav>
         {% endblock %}
 
         {% with messages = get_flashed_messages() %}
