@@ -88,7 +88,7 @@ class AccountModel(db.Model):
     role = db.relationship('RoleModel',
                             backref=db.backref('accounts', lazy='joined'),
                             primaryjoin='AccountModel.role_id==RoleModel.id',
-                            foreign_keys='[RoleModel.id]')
+                            uselist=True, foreign_keys='[RoleModel.id]')
 
     addresses = db.relationship('AddressModel',
                                 backref=db.backref('account', lazy='joined'),
@@ -104,17 +104,26 @@ class AccountModel(db.Model):
 
     @locked_cached_property
     def privileges(self):
+        if not self.role:
+            return []
         if self.email.email in app.config['ADMINS_EMAIL']:
             return db.session.query(PrivilegeModel.code).all()
         else:
+            # TODO self.role is a list
             return [p.code for p in self.role.privileges]
+
+    @classmethod
+    def get_metas(cls, uids=[]):
+        accounts = cls.query.filter_by(cls.uid._in(*uids)).all()
+        return [{account.uid: account.as_dict()} for account in accounts]
 
     def as_dict(self):
         result = {
             'uid': self.uid,
             'nickname': self.nickname,
             'addresses': [address.as_dict() for address in self.addresses],
-            'date_created': self.date_created,
+            'privileges': self.privileges,
+            'date_created': self.date_created.isoformat(),
         }
         if self.role:
             result['role'] = self.role.as_dict()

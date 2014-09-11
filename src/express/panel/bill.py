@@ -86,6 +86,10 @@ class Bill(BaseView):
 class Item(BaseView):
     perm = 'bill'
 
+    can_create = False
+    can_edit = False
+    can_delete = False
+
     column_list = ['id', 'name', 'genre', 'dollar',
                    'quantity', 'remark', 'date_created']
     column_default_sort = ('date_created', True)

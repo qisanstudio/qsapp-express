@@ -19,8 +19,11 @@ class BillSearchView(views.MethodView):
 
     def post(self):
         form = forms.BillSearchForm(request.form)
-        serial_num = form.serial_num.data
-        bills = BillModel.query.filter_by(serial_num=serial_num).all()
+        serial_nums = form.serial_num.data
+        serial_nums = serial_nums.split()
+        bills = (BillModel.query
+                          .filter(BillModel.serial_num.in_(serial_nums))
+                          .all())
         return render_template('www/bill/search.html', form=form, bills=bills)
 
 
