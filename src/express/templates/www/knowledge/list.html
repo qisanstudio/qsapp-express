@@ -1,0 +1,13 @@
+{% extends "www/base.html" %}
+
+{% block title %}相关知识列表 | {{ super() }}{% endblock %}
+
+{% block full %}
+    <ul>
+        <li><a href="{{ url_for('views.knowledge_detail', name='category') }}">中华人民共和国进境物品归类表</a></li>
+        <li><a href="{{ url_for('views.knowledge_detail', name='forbidden') }}">航空禁运商品明细</a></li>
+        <li><a href="{{ url_for('views.knowledge_detail', name='offset') }}">起点速递免责赔偿条款</a></li>
+        <li><a href="{{ url_for('views.knowledge_detail', name='pay') }}">收费标准</a></li>
+        <li><a href="{{ url_for('views.knowledge_detail', name='tax') }}">个人行游完税价格表</a></li>
+    <ul>
+{% endblock %}

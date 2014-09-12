@@ -4,5 +4,6 @@ from __future__ import unicode_literals
 from . import index
 from . import account
 from . import bill
+from . import knowledge
 
-__all__ = ['index', 'account', 'bill']
+__all__ = ['index', 'account', 'bill', 'knowledge']

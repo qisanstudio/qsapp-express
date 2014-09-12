@@ -1,15 +1,217 @@
-<!DOCTYPE html>
-<!-- saved from url=(0115)https://app.yinxiang.com/shard/s1/sh/68a3eaab-ccbe-421c-acd1-635b4ff3354f/191685c88c10a3000c4e24b515ac2874?content= -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link rel="stylesheet" href="https://app.yinxiang.com/redesign/global/css/fonts.css">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="nofollow">
+{% extends "www/base.html" %}
 
-  <link rel="stylesheet" href="https://app.yinxiang.com/redesign/global/css/noteView.css">
-  <title>笔记内容</title>
-<style>#haloword-pron { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -94px -34px; }#haloword-pron:hover { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -111px -34px; }#haloword-close { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -94px 0; }#haloword-close:hover { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -111px 0; }</style></head>
-<body id="note-frame-body">
-  <div class="note-content"><div class="ennote"><table border="1" width="80%" cellspacing="0" cellpadding="2" style="margin-left: auto; margin-right: auto;"><tbody><tr><td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>税号</strong></span></td><td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>物品类别</strong></span></td><td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>范围</strong></span></td><td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>税率</strong></span></td></tr><tr><td colspan="1" rowspan="1" valign="top">01000000</td><td colspan="1" rowspan="1" valign="top">食品、饮料</td><td colspan="1" rowspan="1" valign="top">食品：包括水产品、乳制品、糖制品、调味品，燕窝、冬虫夏草、高丽参、红参、西洋参、人参、鹿茸、阿胶、奶粉及其他保健品、补品等；<br clear="none">饮料：包括茶叶、咖啡等其他非酒精类饮料。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">02000000</td><td colspan="1" rowspan="1" valign="top">酒</td><td colspan="1" rowspan="1" valign="top">包括啤酒、葡萄酒（香槟酒）、黄酒、果酒、清酒、米酒、白兰地、威士忌、伏特加、朗姆酒、金酒、白酒、药酒、保健酒、鸡尾酒、利口酒、龙舌蓝、柯迪尔酒、梅子酒等用粮食、水果等含淀粉或糖的物质发酵或配制而制成的含乙醇的酒精饮料。</td><td colspan="1" rowspan="1" valign="top">50%</td></tr><tr><td colspan="1" rowspan="1" valign="top">03000000</td><td colspan="1" rowspan="1" valign="top">烟草</td><td colspan="1" rowspan="1" valign="top">包括卷烟、雪茄烟、烟丝、烟叶、碎烟、烟梗、烟末等。</td><td colspan="1" rowspan="1" valign="top">50%</td></tr><tr><td colspan="1" rowspan="1" valign="top">04000000</td><td colspan="1" rowspan="1" valign="top">纺织品及其制成品</td><td colspan="1" rowspan="1" valign="top">衣着：包括外衣、外裤、内衣裤、衬衫/T恤衫、其他衣着等；<br clear="none">配饰：包括帽子、丝巾、头巾、围巾、领带、腰带、手套、袜子、手帕等；<br clear="none">家纺用品：包括毛毯、被子、枕头、床罩、睡袋、幔帐等；<br clear="none">其他：包括毛巾、浴巾、桌布、窗帘、地毯等。</td><td colspan="1" rowspan="1" valign="top">20%</td></tr><tr><td colspan="1" rowspan="1" valign="top">05000000</td><td colspan="1" rowspan="1" valign="top">皮革服装及配饰</td><td colspan="1" rowspan="1" valign="top">包括各式皮革服装及皮质配饰。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">06000000</td><td colspan="1" rowspan="1" valign="top">箱包及鞋靴</td><td colspan="1" rowspan="1" valign="top"><div>箱：包括各种材质的箱子；<br clear="none">挎包、背包、提包：包括各种材质的挎包、背包、提包；<br clear="none">钱包、钥匙包：包括各种材质的钱包、钥匙包、卡片包；</div><div>鞋靴：包括皮鞋、皮靴、运动鞋、其他鞋靴等。<br clear="none">其他：包括化妆包、包装袋（盒、箱）等。</div></td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">07000000</td><td colspan="1" rowspan="1" valign="top">表、钟及其配件、附件</td><td colspan="1" rowspan="1" valign="top">高档手表：审定价格在人民币10000元及以上的手表。</td><td colspan="1" rowspan="1" valign="top">30%</td></tr><tr><td colspan="1" rowspan="1" valign="top"><br clear="none"></td><td colspan="1" rowspan="1" valign="top"><br clear="none"></td><td colspan="1" rowspan="1" valign="top">表：包括高档手表外其他各种表；<br clear="none">钟：包括座钟、挂钟、台钟、落地钟等；<br clear="none">配件附件：包括各种表、钟的配件、附件。</td><td colspan="1" rowspan="1" valign="top">20%</td></tr><tr><td colspan="1" rowspan="1" valign="top">08000000</td><td colspan="1" rowspan="1" valign="top">金、银、珠宝及其制品、艺术品、收藏品</td><td colspan="1" rowspan="1" valign="top">包括金、银、珠宝及其制品，艺术品、收藏品。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">09000000</td><td colspan="1" rowspan="1" valign="top">化妆品</td><td colspan="1" rowspan="1" valign="top">芳香类化妆品：包括各种香水、香体棒、止汗露、走珠香露等；<br clear="none">清洁/护理类化妆品：洗面奶（乳、皂）、洁面霜（露、蜜、粉、者哩）、卸妆水（乳、膏、液、油）、鼻贴膜、去黑头膏（液）、剃须膏（泡沫）、洗甲液，面霜、眼霜、日霜、晚霜、冷霜、防晒霜、祛斑霜、护肤膏（霜、露、乳液、喷雾）、磨砂膏、按摩膏、精油、化妆水（含爽肤水、柔肤水、紧肤水、护肤水、收缩水）、须后水、隔离霜、面膜、面膜膏（粉）、眼膜、颈膜、护手霜、护甲水（霜、油）、指甲硬化剂、润唇膏、去角质膏（粉）、发乳、发油、发蜡、焗油膏、花露水、痱子粉、爽身粉等；<br clear="none">美容/修饰类化妆品：包括粉底、粉饼、胭脂、眼影、眼线笔（液）、眉笔、睫毛膏（液）、唇膏、唇彩、唇线笔、指甲油、发胶、发泥、定型水（啫哩、摩丝）等；<br clear="none">特殊功能类化妆品：丰（美、健）乳霜、纤体霜（膏）、健美霜、紧致霜、除臭露（剂）等。</td><td colspan="1" rowspan="1" valign="top">50%</td></tr><tr><td colspan="1" rowspan="1" valign="top">10000000</td><td colspan="1" rowspan="1" valign="top">家用医疗、保健及美容器材</td><td colspan="1" rowspan="1" valign="top">医疗器材：包括呼吸器具、矫形器具、夹板及其他骨折用具，血糖计、血糖试纸、电动洗眼器、红外线耳探热针、空气制氧机、治疗用雾化机、电动血压计、病人用拐杖、病人用轮椅等及上述物品的配件、附件；<br clear="none">保健器材：包括按摩床、按摩椅等及上述物品的配件、附件；<br clear="none">美容器材：包括蒸汽仪、喷雾器、化妆/美容专用工具等及上述物品的配件、附件。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">11000000</td><td colspan="1" rowspan="1" valign="top">厨卫用具及小家电</td><td colspan="1" rowspan="1" valign="top">厨房用具：包括各种材料制的餐具、刀具、炊具、灶具，锅、壶、盘、碗、筷子、勺、铲、餐刀、餐叉、切菜刀、案板、削皮刀、手动绞肉机、手动食品研磨机、搅拌器、净水器、煤气灶、煤气点火器等；<br clear="none">卫生用具、洁具：包括水龙头、淋浴用具等；<br clear="none">其他家庭用具：包括电话机、传真机、游戏机、手动缝纫机或编织机等及上述物品的配件、附件。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top"><br clear="none"></td><td colspan="1" rowspan="1" valign="top"><br clear="none"></td><td colspan="1" rowspan="1" valign="top">电器类厨房用具：包括电饭煲、微波炉、电磁炉、抽油烟机、消毒碗柜、家用洗碗机、电烤箱、面包机、电炉灶、豆浆机、酸奶机、电动榨汁机、咖啡机、制冰机、饮水机、食品调理机、电动食品研磨机、煮蛋器等电器用具；<br clear="none">电器类卫生用具、洁具：包括电热水器等电器用具。<br clear="none">其他小家电：包括灯具、电动缝纫机或编织机、电动剪草机、便携式复印机、电风扇、电烫斗、电吹风机、电动剃须刀、电动毛发推剪器，地板打蜡机、增湿机、除湿机、增除湿一体机、电暖器、电热毯、空气清新机、家用吸尘器、家用地毯洗涤机等电器及上述物品的配件、附件等。</td><td colspan="1" rowspan="1" valign="top">20%</td></tr><tr><td colspan="1" rowspan="1" valign="top">12000000</td><td colspan="1" rowspan="1" valign="top">家具</td><td colspan="1" rowspan="1" valign="top">包括各种材料制的沙发、组合式家具、柜、橱、台、桌、椅、书架、床、床垫、坐垫等。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">13000000</td><td colspan="1" rowspan="1" valign="top">空调及其配件、附件</td><td colspan="1" rowspan="1" valign="top">包括空气调节器及其配件、附件等。</td><td colspan="1" rowspan="1" valign="top">20%</td></tr><tr><td colspan="1" rowspan="1" valign="top">14000000</td><td colspan="1" rowspan="1" valign="top">电冰箱及其配件、附件</td><td colspan="1" rowspan="1" valign="top">包括各式电冰箱、冰柜、红酒柜及其配件、附件等。</td><td colspan="1" rowspan="1" valign="top">20%</td></tr><tr><td colspan="1" rowspan="1" valign="top">15000000</td><td colspan="1" rowspan="1" valign="top">洗衣设备及其配件、附件</td><td colspan="1" rowspan="1" valign="top">包括波轮式洗衣机、滚筒式洗衣机、干衣机/烘干机等及上述物品的配件、附件。</td><td colspan="1" rowspan="1" valign="top">20%</td></tr><tr><td colspan="1" rowspan="1" valign="top">16000000</td><td colspan="1" rowspan="1" valign="top">电视机及其配件、附件</td><td colspan="1" rowspan="1" valign="top">包括各式电视机、电视收音联合机、电视收音录音联合机、电视录像联合机等及上述物品的配件、附件。</td><td colspan="1" rowspan="1" valign="top">20%</td></tr><tr><td colspan="1" rowspan="1" valign="top">17000000</td><td colspan="1" rowspan="1" valign="top">摄影（像）设备及其配件、附件</td><td colspan="1" rowspan="1" valign="top">包括照相机、摄像机、照相制版机、放大机，数码相框、存储卡、胶卷、胶片、感光纸、镜箱、闪光灯、滤色镜、测光表、曝光表、遮光罩、水下摄影罩、半身镜、接镜环、取景器、自拍器、洗像盒、显影罐等。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top"><br clear="none"></td><td colspan="1" rowspan="1" valign="top"><br clear="none"></td><td colspan="1" rowspan="1" valign="top">电视摄像机</td><td colspan="1" rowspan="1" valign="top">20%</td></tr><tr><td colspan="1" rowspan="1" valign="top">18000000</td><td colspan="1" rowspan="1" valign="top">影音设备及其配件、附件</td><td colspan="1" rowspan="1" valign="top">包括录音笔、录音机、收音机、MP3播放机、MP4播放机、收录音机、数码录放音器、电唱机、激光电唱机、放像机、录像机、激光视盘机、（单）功能座、音箱、自动伴唱机、卡拉OK混音器等及上述物品的配件、附件。</td><td colspan="1" rowspan="1" valign="top">20%</td></tr><tr><td colspan="1" rowspan="1" valign="top">19000000</td><td colspan="1" rowspan="1" valign="top">计算机及其外围设备</td><td colspan="1" rowspan="1" valign="top">包括个人计算机及其存储、输入、输出设备和附件、零部件。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">20000000</td><td colspan="1" rowspan="1" valign="top">书报、刊物及其他各类印刷品</td><td colspan="1" rowspan="1" valign="top">包括书报、刊物及其他各类印刷品。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">21000000</td><td colspan="1" rowspan="1" valign="top">教育专用的电影片、幻灯片、原版录音带、录像带</td><td colspan="1" rowspan="1" valign="top">包括教育专用的电影片、幻灯片、原版录音带、录像带、地球仪、解剖模型、人体骨骼模型、教育用示意牌等。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">22000000</td><td colspan="1" rowspan="1" valign="top">文具用品及玩具</td><td colspan="1" rowspan="1" valign="top">包括各种书写用具及材料、照像簿、集邮簿、印刷日历、月历、放大镜、望远镜、眼镜、绘图用具、绘图用颜料、装订用具、削铅笔器、算盘、电子计算器、电子字典/记事簿、电子（纸）书、誊写钢板等各种文具用品及玩具。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">23000000</td><td colspan="1" rowspan="1" valign="top">邮票</td><td colspan="1" rowspan="1" valign="top">包括中国大陆及境外各种邮票、小型张、纪念封等。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">24000000</td><td colspan="1" rowspan="1" valign="top">乐器</td><td colspan="1" rowspan="1" valign="top">包括各种键盘类、弓弦类、拨弦类、打击类、管乐类等乐器及节拍器、音叉、定音器等器具及上述乐器的配件、附件。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr><tr><td colspan="1" rowspan="1" valign="top">25000000</td><td colspan="1" rowspan="1" valign="top">体育用品</td><td colspan="1" rowspan="1" valign="top">高尔夫球及球具：包括高尔夫球杆、高尔夫球、高尔夫球包、高尔夫球手套、高尔夫球鞋。</td><td colspan="1" rowspan="1" valign="top">30%</td></tr><tr><td colspan="1" rowspan="1" valign="top"><br clear="none"></td><td colspan="1" rowspan="1" valign="top"><br clear="none"></td><td colspan="1" rowspan="1" valign="top">除高尔夫球以外各种球类，各种棋类、健身器具、航空和航海模型、钓具等，一般体育活动、体操、竞技、游泳、滑冰、滑雪及其他户内外活动用具及其配件、附件。</td><td colspan="1" rowspan="1" valign="top">10%</td></tr></tbody></table><div><br clear="none"></div><div><br clear="none"></div><div><table style="margin-left: auto; margin-right: auto;" border="1" width="80%" cellspacing="0" cellpadding="2"><tbody><tr><td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>税号</strong></span></td><td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>物品类别</strong></span></td><td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>范围</strong></span></td><td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>税率</strong></span></td></tr><tr><td colspan="1" rowspan="1" valign="top">26000000</td><td colspan="1" rowspan="1" valign="top">自行车、三轮车、童车及其配件、附件</td><td colspan="1" rowspan="1" valign="top">包括不带发动机、电动机的自行车、三轮车、童车等，及上述物品的配件、附件。</td><td colspan="1" rowspan="1" valign="top">20%</td></tr><tr><td colspan="1" rowspan="1" valign="top">27000000</td><td colspan="1" rowspan="1" valign="top">其他物品</td><td colspan="1" rowspan="1" valign="top">其他不能归入上述类别的物品</td><td colspan="1" rowspan="1" valign="top">10%</td></tr></tbody></table></div><div><br clear="none"></div></div></div>
+{% block title %}中华人民共和国进境物品归类表 | {{ super() }}{% endblock %}
 
+{% block head %}
+    <link rel="stylesheet" href="https://app.yinxiang.com/redesign/global/css/fonts.css">
+    <link rel="stylesheet" href="https://app.yinxiang.com/redesign/global/css/noteView.css">
+    <style>
+        #haloword-pron { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -94px -34px; }#haloword-pron:hover { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -111px -34px; }#haloword-close { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -94px 0; }#haloword-close:hover { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -111px 0; }</style><style>#haloword-pron { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -94px -34px; }#haloword-pron:hover { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -111px -34px; }#haloword-close { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -94px 0; }#haloword-close:hover { background: url(chrome-extension://bjjcmegmiddmkeomkgicfhjajbmnpnfk/img/icon.svg) -111px 0; }
+        body {background: #FFFFFF;padding-top: 70px;padding-bottom: 20px;}
+        .header {background-color: #F8F8F8;border-bottom:#F8F8F8;}
+    </style>
+{% endblock %}
 
-<div id="haloword-lookup" class="ui-widget-content ui-draggable"><div id="haloword-title"><span id="haloword-word"></span><a herf="#" id="haloword-pron" class="haloword-button" title="发音"></a><div id="haloword-control-container"><a herf="#" id="haloword-close" class="haloword-button" title="关闭查询窗"></a></div><br style="clear: both;"></div><div id="haloword-content"></div></div></body></html>
+{% block full %}
+<div class="note-content">
+    <div class="ennote">
+        <table border="1" width="80%" cellspacing="0" cellpadding="2" style="margin-left: auto; margin-right: auto;">
+            <tbody>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>税号</strong></span></td>
+                    <td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>物品类别</strong></span></td>
+                    <td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>范围</strong></span></td>
+                    <td colspan="1" rowspan="1" valign="top"><span style="font-size: 12pt;"><strong>税率</strong></span></td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">01000000</td>
+                    <td colspan="1" rowspan="1" valign="top">食品、饮料</td>
+                    <td colspan="1" rowspan="1" valign="top">食品：包括水产品、乳制品、糖制品、调味品，燕窝、冬虫夏草、高丽参、红参、西洋参、人参、鹿茸、阿胶、奶粉及其他保健品、补品等；<br clear="none">饮料：包括茶叶、咖啡等其他非酒精类饮料。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">02000000</td>
+                    <td colspan="1" rowspan="1" valign="top">酒</td>
+                    <td colspan="1" rowspan="1" valign="top">包括啤酒、葡萄酒（香槟酒）、黄酒、果酒、清酒、米酒、白兰地、威士忌、伏特加、朗姆酒、金酒、白酒、药酒、保健酒、鸡尾酒、利口酒、龙舌蓝、柯迪尔酒、梅子酒等用粮食、水果等含淀粉或糖的物质发酵或配制而制成的含乙醇的酒精饮料。</td>
+                    <td colspan="1" rowspan="1" valign="top">50%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">03000000</td>
+                    <td colspan="1" rowspan="1" valign="top">烟草</td>
+                    <td colspan="1" rowspan="1" valign="top">包括卷烟、雪茄烟、烟丝、烟叶、碎烟、烟梗、烟末等。</td>
+                    <td colspan="1" rowspan="1" valign="top">50%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">04000000</td>
+                    <td colspan="1" rowspan="1" valign="top">纺织品及其制成品</td>
+                    <td colspan="1" rowspan="1" valign="top">衣着：包括外衣、外裤、内衣裤、衬衫/T恤衫、其他衣着等；<br clear="none">配饰：包括帽子、丝巾、头巾、围巾、领带、腰带、手套、袜子、手帕等；<br clear="none">家纺用品：包括毛毯、被子、枕头、床罩、睡袋、幔帐等；<br clear="none">其他：包括毛巾、浴巾、桌布、窗帘、地毯等。</td>
+                    <td colspan="1" rowspan="1" valign="top">20%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">05000000</td>
+                    <td colspan="1" rowspan="1" valign="top">皮革服装及配饰</td>
+                    <td colspan="1" rowspan="1" valign="top">包括各式皮革服装及皮质配饰。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">06000000</td>
+                    <td colspan="1" rowspan="1" valign="top">箱包及鞋靴</td>
+                    <td colspan="1" rowspan="1" valign="top"><div>箱：包括各种材质的箱子；<br clear="none">挎包、背包、提包：包括各种材质的挎包、背包、提包；<br clear="none">钱包、钥匙包：包括各种材质的钱包、钥匙包、卡片包；</div><div>鞋靴：包括皮鞋、皮靴、运动鞋、其他鞋靴等。<br clear="none">其他：包括化妆包、包装袋（盒、箱）等。</div></td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">07000000</td>
+                    <td colspan="1" rowspan="1" valign="top">表、钟及其配件、附件</td>
+                    <td colspan="1" rowspan="1" valign="top">高档手表：审定价格在人民币10000元及以上的手表。</td>
+                    <td colspan="1" rowspan="1" valign="top">30%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top"><br clear="none"></td>
+                    <td colspan="1" rowspan="1" valign="top"><br clear="none"></td>
+                    <td colspan="1" rowspan="1" valign="top">表：包括高档手表外其他各种表；<br clear="none">钟：包括座钟、挂钟、台钟、落地钟等；<br clear="none">配件附件：包括各种表、钟的配件、附件。</td>
+                    <td colspan="1" rowspan="1" valign="top">20%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">08000000</td>
+                    <td colspan="1" rowspan="1" valign="top">金、银、珠宝及其制品、艺术品、收藏品</td>
+                    <td colspan="1" rowspan="1" valign="top">包括金、银、珠宝及其制品，艺术品、收藏品。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">09000000</td>
+                    <td colspan="1" rowspan="1" valign="top">化妆品</td>
+                    <td colspan="1" rowspan="1" valign="top">芳香类化妆品：包括各种香水、香体棒、止汗露、走珠香露等；<br clear="none">清洁/护理类化妆品：洗面奶（乳、皂）、洁面霜（露、蜜、粉、者哩）、卸妆水（乳、膏、液、油）、鼻贴膜、去黑头膏（液）、剃须膏（泡沫）、洗甲液，面霜、眼霜、日霜、晚霜、冷霜、防晒霜、祛斑霜、护肤膏（霜、露、乳液、喷雾）、磨砂膏、按摩膏、精油、化妆水（含爽肤水、柔肤水、紧肤水、护肤水、收缩水）、须后水、隔离霜、面膜、面膜膏（粉）、眼膜、颈膜、护手霜、护甲水（霜、油）、指甲硬化剂、润唇膏、去角质膏（粉）、发乳、发油、发蜡、焗油膏、花露水、痱子粉、爽身粉等；<br clear="none">美容/修饰类化妆品：包括粉底、粉饼、胭脂、眼影、眼线笔（液）、眉笔、睫毛膏（液）、唇膏、唇彩、唇线笔、指甲油、发胶、发泥、定型水（啫哩、摩丝）等；<br clear="none">特殊功能类化妆品：丰（美、健）乳霜、纤体霜（膏）、健美霜、紧致霜、除臭露（剂）等。</td>
+                    <td colspan="1" rowspan="1" valign="top">50%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">10000000</td>
+                    <td colspan="1" rowspan="1" valign="top">家用医疗、保健及美容器材</td>
+                    <td colspan="1" rowspan="1" valign="top">医疗器材：包括呼吸器具、矫形器具、夹板及其他骨折用具，血糖计、血糖试纸、电动洗眼器、红外线耳探热针、空气制氧机、治疗用雾化机、电动血压计、病人用拐杖、病人用轮椅等及上述物品的配件、附件；<br clear="none">保健器材：包括按摩床、按摩椅等及上述物品的配件、附件；<br clear="none">美容器材：包括蒸汽仪、喷雾器、化妆/美容专用工具等及上述物品的配件、附件。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">11000000</td>
+                    <td colspan="1" rowspan="1" valign="top">厨卫用具及小家电</td>
+                    <td colspan="1" rowspan="1" valign="top">厨房用具：包括各种材料制的餐具、刀具、炊具、灶具，锅、壶、盘、碗、筷子、勺、铲、餐刀、餐叉、切菜刀、案板、削皮刀、手动绞肉机、手动食品研磨机、搅拌器、净水器、煤气灶、煤气点火器等；<br clear="none">卫生用具、洁具：包括水龙头、淋浴用具等；<br clear="none">其他家庭用具：包括电话机、传真机、游戏机、手动缝纫机或编织机等及上述物品的配件、附件。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top"><br clear="none"></td>
+                    <td colspan="1" rowspan="1" valign="top"><br clear="none"></td>
+                    <td colspan="1" rowspan="1" valign="top">电器类厨房用具：包括电饭煲、微波炉、电磁炉、抽油烟机、消毒碗柜、家用洗碗机、电烤箱、面包机、电炉灶、豆浆机、酸奶机、电动榨汁机、咖啡机、制冰机、饮水机、食品调理机、电动食品研磨机、煮蛋器等电器用具；<br clear="none">电器类卫生用具、洁具：包括电热水器等电器用具。<br clear="none">其他小家电：包括灯具、电动缝纫机或编织机、电动剪草机、便携式复印机、电风扇、电烫斗、电吹风机、电动剃须刀、电动毛发推剪器，地板打蜡机、增湿机、除湿机、增除湿一体机、电暖器、电热毯、空气清新机、家用吸尘器、家用地毯洗涤机等电器及上述物品的配件、附件等。</td>
+                    <td colspan="1" rowspan="1" valign="top">20%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">12000000</td>
+                    <td colspan="1" rowspan="1" valign="top">家具</td>
+                    <td colspan="1" rowspan="1" valign="top">包括各种材料制的沙发、组合式家具、柜、橱、台、桌、椅、书架、床、床垫、坐垫等。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">13000000</td>
+                    <td colspan="1" rowspan="1" valign="top">空调及其配件、附件</td>
+                    <td colspan="1" rowspan="1" valign="top">包括空气调节器及其配件、附件等。</td>
+                    <td colspan="1" rowspan="1" valign="top">20%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">14000000</td>
+                    <td colspan="1" rowspan="1" valign="top">电冰箱及其配件、附件</td>
+                    <td colspan="1" rowspan="1" valign="top">包括各式电冰箱、冰柜、红酒柜及其配件、附件等。</td>
+                    <td colspan="1" rowspan="1" valign="top">20%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">15000000</td>
+                    <td colspan="1" rowspan="1" valign="top">洗衣设备及其配件、附件</td>
+                    <td colspan="1" rowspan="1" valign="top">包括波轮式洗衣机、滚筒式洗衣机、干衣机/烘干机等及上述物品的配件、附件。</td>
+                    <td colspan="1" rowspan="1" valign="top">20%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">16000000</td>
+                    <td colspan="1" rowspan="1" valign="top">电视机及其配件、附件</td>
+                    <td colspan="1" rowspan="1" valign="top">包括各式电视机、电视收音联合机、电视收音录音联合机、电视录像联合机等及上述物品的配件、附件。</td>
+                    <td colspan="1" rowspan="1" valign="top">20%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">17000000</td>
+                    <td colspan="1" rowspan="1" valign="top">摄影（像）设备及其配件、附件</td>
+                    <td colspan="1" rowspan="1" valign="top">包括照相机、摄像机、照相制版机、放大机，数码相框、存储卡、胶卷、胶片、感光纸、镜箱、闪光灯、滤色镜、测光表、曝光表、遮光罩、水下摄影罩、半身镜、接镜环、取景器、自拍器、洗像盒、显影罐等。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top"><br clear="none"></td>
+                    <td colspan="1" rowspan="1" valign="top"><br clear="none"></td>
+                    <td colspan="1" rowspan="1" valign="top">电视摄像机</td>
+                    <td colspan="1" rowspan="1" valign="top">20%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">18000000</td>
+                    <td colspan="1" rowspan="1" valign="top">影音设备及其配件、附件</td>
+                    <td colspan="1" rowspan="1" valign="top">包括录音笔、录音机、收音机、MP3播放机、MP4播放机、收录音机、数码录放音器、电唱机、激光电唱机、放像机、录像机、激光视盘机、（单）功能座、音箱、自动伴唱机、卡拉OK混音器等及上述物品的配件、附件。</td>
+                    <td colspan="1" rowspan="1" valign="top">20%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">19000000</td>
+                    <td colspan="1" rowspan="1" valign="top">计算机及其外围设备</td>
+                    <td colspan="1" rowspan="1" valign="top">包括个人计算机及其存储、输入、输出设备和附件、零部件。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">20000000</td>
+                    <td colspan="1" rowspan="1" valign="top">书报、刊物及其他各类印刷品</td>
+                    <td colspan="1" rowspan="1" valign="top">包括书报、刊物及其他各类印刷品。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">21000000</td>
+                    <td colspan="1" rowspan="1" valign="top">教育专用的电影片、幻灯片、原版录音带、录像带</td>
+                    <td colspan="1" rowspan="1" valign="top">包括教育专用的电影片、幻灯片、原版录音带、录像带、地球仪、解剖模型、人体骨骼模型、教育用示意牌等。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">22000000</td>
+                    <td colspan="1" rowspan="1" valign="top">文具用品及玩具</td>
+                    <td colspan="1" rowspan="1" valign="top">包括各种书写用具及材料、照像簿、集邮簿、印刷日历、月历、放大镜、望远镜、眼镜、绘图用具、绘图用颜料、装订用具、削铅笔器、算盘、电子计算器、电子字典/记事簿、电子（纸）书、誊写钢板等各种文具用品及玩具。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">23000000</td>
+                    <td colspan="1" rowspan="1" valign="top">邮票</td>
+                    <td colspan="1" rowspan="1" valign="top">包括中国大陆及境外各种邮票、小型张、纪念封等。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">24000000</td>
+                    <td colspan="1" rowspan="1" valign="top">乐器</td>
+                    <td colspan="1" rowspan="1" valign="top">包括各种键盘类、弓弦类、拨弦类、打击类、管乐类等乐器及节拍器、音叉、定音器等器具及上述乐器的配件、附件。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">25000000</td>
+                    <td colspan="1" rowspan="1" valign="top">体育用品</td>
+                    <td colspan="1" rowspan="1" valign="top">高尔夫球及球具：包括高尔夫球杆、高尔夫球、高尔夫球包、高尔夫球手套、高尔夫球鞋。</td>
+                    <td colspan="1" rowspan="1" valign="top">30%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top"><br clear="none"></td>
+                    <td colspan="1" rowspan="1" valign="top"><br clear="none"></td>
+                    <td colspan="1" rowspan="1" valign="top">除高尔夫球以外各种球类，各种棋类、健身器具、航空和航海模型、钓具等，一般体育活动、体操、竞技、游泳、滑冰、滑雪及其他户内外活动用具及其配件、附件。</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">26000000</td>
+                    <td colspan="1" rowspan="1" valign="top">自行车、三轮车、童车及其配件、附件</td>
+                    <td colspan="1" rowspan="1" valign="top">包括不带发动机、电动机的自行车、三轮车、童车等，及上述物品的配件、附件。</td>
+                    <td colspan="1" rowspan="1" valign="top">20%</td>
+                </tr>
+                <tr>
+                    <td colspan="1" rowspan="1" valign="top">27000000</td>
+                    <td colspan="1" rowspan="1" valign="top">其他物品</td>
+                    <td colspan="1" rowspan="1" valign="top">其他不能归入上述类别的物品</td>
+                    <td colspan="1" rowspan="1" valign="top">10%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<div>
+<br clear="none">
+{% endblock %}
