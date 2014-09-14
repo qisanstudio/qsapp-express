@@ -21,7 +21,7 @@ class BaseView(ModelView):
     form_ajax_refs = None
 
     def is_accessible(self):
-        print request.current_user, 'xxxxxxxxxxxxxxxx'
+        return True
         return self.perm in request.current_user['privileges']
 
     @property

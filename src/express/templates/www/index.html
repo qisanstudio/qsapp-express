@@ -4,25 +4,14 @@
 {% block full %}
     <div id="slide" data-target="#nav" data-offset="0" class="">
         <div id="service" class="jumbotron">
-            <h1>解决方案</h1>
-            <p>介绍</p>
-            <p><a href="/signup">注册</a></p>
-            <p><a href="/signin">登录</a></p>
-            <p><a class="btn btn-primary btn-lg" role="button" href="/service">详情</a></p>
-        </div>
-        <div id="charge" class="jumbotron">
-            <h1>收费标准</h1>
-            <p>点击可查询</p>
-            <p>点击可查询</p>
-            <p>点击可查询</p>
-            <p>点击可查询</p>
-            <p>点击可查询</p>
-            <p><a class="btn btn-primary btn-lg" role="button" href="/charge">详情</a></p>
-        </div>
-        <div id="indemnify" class="jumbotron">
-            <h1>免责赔偿</h1>
-            <p><a class="btn btn-primary btn-lg" role="button" href="/indemnify">详情</a></p>
+            <form class="form-horizontal" action="{{ url_for('views.bill_search') }}" method="POST" role="form">
+        		<div class="form-group">
+            		<div class="col-sm-12"><textarea class="form-control" id="serial_num" name="serial_num" placeholder="批量查询，最多10单" rows="10"></textarea></div>
+        		</div>
+        		<div class="form-group">
+            		<div class="col-sm-offset-10 col-sm-2"><button type="submit" class="btn btn-lg btn-default">查询</button></div>
+        		</div>
+    		</form>
         </div>
     </div>
-
 {% endblock %}

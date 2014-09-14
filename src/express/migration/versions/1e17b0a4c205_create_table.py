@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """create_table
 
 Revision ID: 1e17b0a4c205

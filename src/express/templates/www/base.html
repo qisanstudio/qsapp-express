@@ -7,24 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="{{ versioning('fav.ico') }}" rel="shotcut icon">
-        <link rel="stylesheet" href="styles/vendor.css">
+        <link rel="stylesheet" href="{{ versioning('styles/vendor.css') }}">
         <link rel="stylesheet" href="{{ versioning('styles/main.css') }}">
+        <script src="{{ versioning('scripts/vendor.js') }}"></script>
         <script src="{{ versioning('scripts/vendor/modernizr.js') }}"></script>
-        <script src="{{ versioning('scripts/vendor/headroom.js') }}"></script>
-        <script type="text/javascript">
-        $("nav").headroom({
-          "tolerance": 10,
-          "offset": 400,
-          "classes": {
-            "initial": "animated",
-            "pinned": "slideDown",
-            "unpinned": "slideUp"
-          }
-        });
-
-        // to destroy
-//        $("#header").headroom("destroy");
-        </script>
         {% block head %}
         {% endblock %}
     </head>
@@ -53,15 +39,17 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         {% block navitems %}
-                        <li class=""><a href="#service">解决方案</a></li>
-                        <li class=""><a href="#charge">收费标准</a></li>
-                        <li class=""><a href="#indemnify">免责赔偿</a></li>
+                        <li class="hide"><a href="#service">解决方案</a></li>
+                        <li class=""><a href="{{ url_for('views.knowledge_detail', name='pay') }}">收费标准</a></li>
+                        <li class=""><a href="{{ url_for('views.knowledge_detail', name='offset') }}">免责赔偿</a></li>
                         <li class=""><a href="{{ url_for('views.knowledge') }}">相关知识</a></li>
-                        <li class=""><a href="{{ url_for('views.bill_search') }}">批量查询</a></li>
+                        <li class="hide"><a href="{{ url_for('views.bill_search') }}">批量查询</a></li>
                         {% endblock %}
                     </ul>
                     <ul class="nav navbar-nav navbar-right" >
-                        <li>
+                        <li class=""><a href="{{ url_for('views.signup') }}">注册</a></li>
+                        <li class=""><a href="{{ url_for('views.signin') }}">登录</a></li>
+                        <li class="hide">
                             <form class="navbar-form form-inline" action="{{ url_for('views.bill_search') }}" method="POST" role="search">
                                 <div class="form-group">
                                     <div class="input-group">
@@ -142,9 +130,20 @@
                 ga('send', 'pageview');
             </script>
 
-            <script src="{{ versioning('scripts/vendor.js') }}"></script>
             <script src="{{ versioning('scripts/plugins.js') }}"></script>
             <script src="{{ versioning('scripts/main.js') }}"></script>
+            <script src="{{ versioning('scripts/vendor/headroom.js') }}"></script>
+            <script type="text/javascript">
+                $("#nav").headroom({
+                    "tolerance": 5,
+                    "offset": 55,
+                    "classes": {
+                        "initial": "slide",
+                        "pinned": "slideDown",
+                        "unpinned": "slideUp"
+                    }
+                });
+            </script>
 
         {% endblock %}
 </body>

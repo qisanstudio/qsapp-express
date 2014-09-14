@@ -58,8 +58,8 @@ class SignUpView(views.MethodView):
             flash('Email had been used')
             return redirect(url_for('views.signup'))
         account = AccountModel(nickname=nickname)
-        account.email = EmailModel(email=email,
-                                    password=password)
+        account.email = EmailModel(email=email)
+        account.email.password = password
         db.session.add(account)
         try:
             db.session.commit()
