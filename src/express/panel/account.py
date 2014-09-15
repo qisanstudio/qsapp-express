@@ -66,6 +66,8 @@ class Account(BaseView):
 
     def edit_form(self, obj=None):
         form = super(Account, self).edit_form(obj=obj)
+        delattr(form, 'addresses')
+        delattr(form, 'bills')
         delattr(form, 'date_created')
         return form
 

@@ -81,14 +81,14 @@ class AccountModel(db.Model):
                              server_default=db.func.current_timestamp())
 
     email = db.relationship('EmailModel',
-            backref=db.backref('account'),
-            primaryjoin='AccountModel.uid==EmailModel.uid',
-            uselist=False, passive_deletes=True)
+                            backref=db.backref('account'),
+                            primaryjoin='AccountModel.uid==EmailModel.uid',
+                            uselist=False, passive_deletes=True)
 
     role = db.relationship('RoleModel',
                             backref=db.backref('accounts', lazy='joined'),
                             primaryjoin='AccountModel.role_id==RoleModel.id',
-                            uselist=True, foreign_keys='[RoleModel.id]')
+                            uselist=False)
 
     addresses = db.relationship('AddressModel',
                                 backref=db.backref('account', lazy='joined'),
