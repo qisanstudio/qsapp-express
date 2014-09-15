@@ -72,17 +72,7 @@ def upgrade():
         sa.Column('real_name', sa.Unicode(64), nullable=False, index=True),
         sa.Column('mobile', sa.Unicode(32), nullable=False),
         sa.Column('code', sa.Unicode(32), nullable=False),
-        sa.Column('IDnumber', sa.Unicode(64), nullable=False),
-        sa.Column(u'date_created', sa.DateTime(timezone=True),
-                                   server_default=sa.func.current_timestamp(),
-                                   nullable=False, index=True),
-    )
-
-
-    op.create_table(u'logistics',
-        sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
-        sa.Column('genre', sa.Unicode(64), nullable=False, index=True),
-        sa.Column('infomation', sa.UnicodeText(), nullable=False),
+        sa.Column('IDnumber', sa.Unicode(64), nullable=True),
         sa.Column(u'date_created', sa.DateTime(timezone=True),
                                    server_default=sa.func.current_timestamp(),
                                    nullable=False, index=True),
@@ -102,6 +92,18 @@ def upgrade():
         sa.Column('address_id', sa.Integer(),
                              sa.ForeignKey('address.id'), nullable=False),
         sa.Column('remark', sa.UnicodeText(), nullable=False),
+        sa.Column(u'date_created', sa.DateTime(timezone=True),
+                                   server_default=sa.func.current_timestamp(),
+                                   nullable=False, index=True),
+    )
+
+
+    op.create_table(u'logistics',
+        sa.Column('id', sa.Integer(), nullable=False, primary_key=True),
+        sa.Column('bill_id', sa.Integer(),
+                  sa.ForeignKey('bill.id'), nullable=False),
+        sa.Column('genre', sa.Unicode(64), nullable=False, index=True),
+        sa.Column('infomation', sa.UnicodeText(), nullable=False),
         sa.Column(u'date_created', sa.DateTime(timezone=True),
                                    server_default=sa.func.current_timestamp(),
                                    nullable=False, index=True),

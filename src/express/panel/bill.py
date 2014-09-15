@@ -52,6 +52,13 @@ class Logistics(BaseView):
         return form
 
 
+class LogisticsInlineForm(InlineFormAdmin):
+
+    def get_form(self):
+        form = forms.LogisticsForm()
+        return type(form)
+
+
 class ItemInlineForm(InlineFormAdmin):
 
     def get_form(self):
@@ -65,7 +72,15 @@ class Bill(BaseView):
     column_list = ['id', 'genre', 'serial_num', 'remark', 'date_created']
     column_default_sort = ('date_created', True)
 
-    inline_models = (ItemInlineForm(ItemModel), )
+    inline_models = (LogisticsInlineForm(LogisticsModel, 
+                                         widget_args=dict(infomation= {'rows': 5, 'style': 'width:400px;'})), 
+                     ItemInlineForm(ItemModel,
+                                    widget_args=dict(remark= {'rows': 5, 'style': 'width:400px;'})), )
+
+    form_widget_args = {
+        'remark': {'rows': 6, 'style': 'width:500px;'},
+
+    }
 
     def __init__(self, **kwargs):
         super(Bill, self).__init__(BillModel, db.session, **kwargs)

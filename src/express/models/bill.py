@@ -41,7 +41,7 @@ class AddressModel(db.Model):
     real_name = db.Column(db.Unicode(64), nullable=False, index=True)
     mobile = db.Column(db.Unicode(32), nullable=False)
     code = db.Column(db.Unicode(32), nullable=False)
-    IDnumber = db.Column(db.Unicode(64), nullable=False)
+    IDnumber = db.Column(db.Unicode(64), nullable=True)
     date_created = db.Column(db.DateTime(timezone=True),
                              nullable=False, index=True,
                              server_default=db.func.current_timestamp())
@@ -63,6 +63,7 @@ class LogisticsModel(db.Model):
     __tablename__ = 'logistics'
 
     id = db.Column(db.Integer(), nullable=False, primary_key=True)
+    bill_id = db.Column(db.Integer(), db.ForeignKey('bill.id'), nullable=False)
     genre = db.Column(db.Unicode(64), nullable=False, index=True)
     infomation = db.Column(db.UnicodeText(), nullable=False)
     date_created = db.Column(db.DateTime(timezone=True),
@@ -98,6 +99,11 @@ class BillModel(db.Model):
                 backref=db.backref('bills', lazy='joined'),
                 primaryjoin='AddressModel.id==BillModel.address_id',
                 uselist=False)
+
+    logistics = db.relationship('LogisticsModel',
+                backref=db.backref('bill', lazy='joined', innerjoin=True),
+                primaryjoin='BillModel.id==LogisticsModel.bill_id',
+                foreign_keys='[LogisticsModel.bill_id]')
 
     items = db.relationship('ItemModel',
                 backref=db.backref('bill', lazy='joined', innerjoin=True),

@@ -22,9 +22,9 @@ admin.add_view(Email(name='邮箱',
 # 货单管理
 admin.add_view(Address(name='地址',
                          category='货单管理', endpoint='address'))
-admin.add_view(Logistics(name='物流',
-                         category='货单管理', endpoint='logistics'))
+#admin.add_view(Logistics(name='物流',
+#                         category='货单管理', endpoint='logistics'))
 admin.add_view(Bill(name='订单',
                          category='货单管理', endpoint='bill'))
-admin.add_view(Item(name='货物',
-                         category='货单管理', endpoint='item'))
+#admin.add_view(Item(name='货物',
+#                         category='货单管理', endpoint='item'))
