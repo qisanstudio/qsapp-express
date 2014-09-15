@@ -3,11 +3,26 @@
 {% block title %}相关知识列表 | {{ super() }}{% endblock %}
 
 {% block full %}
-    <ul>
-        <li><a href="{{ url_for('views.knowledge_detail', name='category') }}">中华人民共和国进境物品归类表</a></li>
-        <li><a href="{{ url_for('views.knowledge_detail', name='forbidden') }}">航空禁运商品明细</a></li>
-        <li><a href="{{ url_for('views.knowledge_detail', name='offset') }}">起点速递免责赔偿条款</a></li>
-        <li><a href="{{ url_for('views.knowledge_detail', name='pay') }}">收费标准</a></li>
-        <li><a href="{{ url_for('views.knowledge_detail', name='tax') }}">个人行游完税价格表</a></li>
-    <ul>
+		<div class="list-group">
+  			<a href="{{ url_for('views.knowledge_detail', name='category') }}" class="list-group-item">
+    			<h4 class="list-group-item-heading">中华人民共和国进境物品归类表</h4>
+    			<p class="list-group-item-text">...</p>
+  			</a>
+  			<a href="{{ url_for('views.knowledge_detail', name='forbidden') }}" class="list-group-item">
+    			<h4 class="list-group-item-heading">航空禁运商品明细</h4>
+    			<p class="list-group-item-text">...</p>
+  			</a>
+  			<a href="{{ url_for('views.knowledge_detail', name='offset') }}" class="list-group-item">
+    			<h4 class="list-group-item-heading">起点速递免责赔偿条款</h4>
+    			<p class="list-group-item-text">...</p>
+  			</a>
+  			<a href="{{ url_for('views.knowledge_detail', name='pay') }}" class="list-group-item">
+    			<h4 class="list-group-item-heading">收费标准</h4>
+    			<p class="list-group-item-text">...</p>
+  			</a>
+  			<a href="{{ url_for('views.knowledge_detail', name='tax') }}" class="list-group-item">
+    			<h4 class="list-group-item-heading">个人行游完税价格表</h4>
+    			<p class="list-group-item-text">...</p>
+  			</a>
+		</div>
 {% endblock %}

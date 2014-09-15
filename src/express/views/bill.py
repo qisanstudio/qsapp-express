@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from flask import views, request, render_template
+from flask import views, request, flash, render_template
 from express.blueprints import blueprint_www
 from express.models.bill import BillModel
 
@@ -24,6 +24,9 @@ class BillSearchView(views.MethodView):
         bills = (BillModel.query
                           .filter(BillModel.serial_num.in_(serial_nums))
                           .all())
+        mis_find_count = len(serial_nums) - len(bills)
+        if mis_find_count > 0:
+            flash('有%s个快递单子未查询到，请检查快递单号' % mis_find_count)
         return render_template('www/bill/search.html', form=form, bills=bills)
 
 
