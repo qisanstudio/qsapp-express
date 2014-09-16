@@ -107,10 +107,10 @@ class AccountModel(db.Model):
         if not self.role:
             return []
         if self.email.email in app.config['ADMINS_EMAIL']:
-            return db.session.query(PrivilegeModel.code).all()
+            priv_list = db.session.query(PrivilegeModel.code).all()
+            return [p.code.strip() for p in priv_list]
         else:
-            # TODO self.role is a list
-            return [p.code for p in self.role.privileges]
+            return [p.code.strip() for p in self.role.privileges]
 
     @classmethod
     def get_metas(cls, uids=[]):

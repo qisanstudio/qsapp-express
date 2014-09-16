@@ -3,6 +3,9 @@ from __future__ import unicode_literals
 
 
 DEBUG = True
+
+SERVER_NAME = 'www.dev.qisan.com:18000'#'oexpress.us'
+
 SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://express:eeee@localhost/express'
 SQLALCHEMY_ECHO = False
 

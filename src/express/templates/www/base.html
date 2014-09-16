@@ -47,20 +47,32 @@
                         {% endblock %}
                     </ul>
                     <ul class="nav navbar-nav navbar-right" >
-                        <li class=""><a href="{{ url_for('views.signup') }}">注册</a></li>
-                        <li class=""><a href="{{ url_for('views.signin') }}">登录</a></li>
-                        <li class="hide">
-                            <form class="navbar-form form-inline" action="{{ url_for('views.bill_search') }}" method="POST" role="search">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input type="search" name="serial_num" class="form-control" placeholder="单号">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                                        </span>
+                        {% if request.uid %}
+                            <li><a href="{{ url_for('views.home') }}"><span class="glyphicon glyphicon-user"></span></a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.current_user.nickname }}<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url_for('views.home') }}">主页</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{ url_for('views.signout', uid=request.current_user.uid) }}">退出</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class=""><a href="{{ url_for('views.signup') }}">注册</a></li>
+                            <li class=""><a href="{{ url_for('views.signin') }}">登录</a></li>
+                            <li class="hide">
+                                <form class="navbar-form form-inline" action="{{ url_for('views.bill_search') }}" method="POST" role="search">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input type="search" name="serial_num" class="form-control" placeholder="单号">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                        </li>
+                                </form>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
