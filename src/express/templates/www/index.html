@@ -30,25 +30,84 @@
         	</li>
     	</ul>
 	</div>
+    <div class="row" style="background: #f7f7f6; padding: 20px 50px;">
+        <div class="col-md-offset-8 col-md-4">
+            <form class="form-horizontal" action="{{ url_for('views.bill_search') }}" method="POST" role="form">
+                <div class="form-group">
+                    <div class=""><textarea class="form-control" id="serial_num" name="serial_num" placeholder="批量查询，最多10单" rows="8"></textarea></div>
+                </div>
+                <div class="form-group">
+                    <div class="pull-right"><button type="submit" class="btn btn-default">查询</button></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row" style="background: #eee; padding: 20px 50px;">
+        <div class="jumbotron">
+            <h1>新闻公告一</h1>
+            <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
+        </div>
+
+        <div class="jumbotron">
+            <h1>新闻公告二</h1>
+            <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
+        </div>
+
+        <div class="jumbotron">
+            <h1>新闻公告三</h1>
+            <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
+        </div>
+    </div>
+        <div>
+                <a href="http://www.ups.com/" title="UPS" target="_blank">
+                  <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/159820130124162859.jpg
+" width="140px;" height="48px;" alt="UPS">
+                </a>
+                
+                <a href="http://www.dhl.com/en.html" title="DHL" target="_blank">
+                  <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/125420130124135341.png
+" width="140px;" height="48px;" alt="DHL">
+                </a>
+                
+                <a href="http://www.fedex.com/" title="FedEx" target="_blank">
+                  <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/154720130124135402.jpg
+" width="140px;" height="48px;" alt="FedEx">
+                </a>
+                
+                <a href="http://www.ontrac.com/" title="OnTrac" target="_blank">
+                  <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/171920130124141716.jpg
+" width="140px;" height="48px;" alt="OnTrac">
+                </a>
+                
+                <a href="http://www.ems.com.cn/" title="EMS" target="_blank">
+                  <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/166520130124140039.jpg
+" width="140px;" height="48px;" alt="EMS">
+                </a>
+                
+                <a href="https://www.usps.com/" title="USPS" target="_blank">
+                  <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/181320130124140602.jpg
+" width="140px;" height="48px;" alt="USPS">
+                </a>
+                
+                <a href="https://www.alipay.com/" title="支付宝" target="_blank">
+                  <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/180320130124140803.jpg
+" width="140px;" height="48px;" alt="支付宝">
+                </a>
+                
+                <a href="http://usa.visa.com/?country=us&amp;ep=v_gg_new&amp;akamai=true" title="VISA" target="_blank">
+                  <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/135920130124141244.jpg
+" width="140px;" height="48px;" alt="VISA">
+                </a>
+              </div>
 {% endblock %}
 
 {% block full %}
 	<!-- left -->
-    <div class="left col-sm-4">
-        <div id="slide" data-target="#nav" data-offset="0" class="">
-        <form class="form-horizontal" action="{{ url_for('views.bill_search') }}" method="POST" role="form">
-        		<div class="form-group">
-            		<div class=""><textarea class="form-control" id="serial_num" name="serial_num" placeholder="批量查询，最多10单" rows="8"></textarea></div>
-        		</div>
-        		<div class="form-group">
-            		<div class="pull-right"><button type="submit" class="btn btn-default">查询</button></div>
-        		</div>
-    		</form>
-    	</div>
+    <div class="left col-sm-4">  
 	</div>
 	<!-- center -->
 	<div class="center col-sm-4">
-		<div class="list-group">
+		<div class="list-group hide">
   			<a href="{{ url_for('views.knowledge_detail', name='category') }}" class="list-group-item">
     			<h4 class="list-group-item-heading">中华人民共和国进境物品归类表</h4>
   			</a>
@@ -67,7 +126,7 @@
 		</div>
     </div>
     <!-- right -->
-	<div class="right col-sm-4">
+	<div class="right col-sm-4 hide">
 		<ul class="list-group">
   			<li class="list-group-item">
   				<p><a href="mailto:lzmchris@hotmail.com?Subject=[意见反馈]" target="_blank">发邮件：起点速递-小李</a></p>
@@ -82,6 +141,7 @@
   				<p>微信：fredli84</p>
   			</li>
 		</ul>
+    </div>
     </div>
 {% endblock %}
 
