@@ -1,0 +1,100 @@
+{% extends "www/base.html" %}
+
+{% block head %}
+	<link rel="stylesheet" href="{{ versioning('styles/index.css') }}">
+{% endblock %}
+
+{% block banner %}
+	<div class="banner">
+    	<ul>
+        	<li style="width: 25%; background-image: url(http://www.bootcss.com/p/unslider/img/sunset.jpg); background-size: 100% 100%;">
+        		<div class="inner">
+					<h1>起点速递</h1>
+					<p>为您提供贴心的转运服务</p>
+					<a class="btn" href="{{ url_for('views.knowledge_detail', name='pay') }}">了解详情</a>
+				</div>
+        	</li>
+        	<li style="width: 25%; background-image: url(http://www.bootcss.com/p/unslider/img/subway.jpg); background-size: 100% 100%;">
+        		<div class="inner">
+					<h1>个人行游完税价格表</h1>
+					<p>完税一览表</p>
+					<a class="btn" href="{{ url_for('views.knowledge_detail', name='tax') }}">点击查看</a>
+				</div>
+        	</li>
+        	<li style="width: 25%; background-image: url(http://www.bootcss.com/p/unslider/img/wood.jpg); background-size: 100% 100%;">
+              	<div class="inner">
+					<h1>免责赔偿</h1>
+					<p>赔偿无忧，让你放心</p>
+					<a class="btn" href="{{ url_for('views.knowledge_detail', name='offset') }}">查看细则</a>
+				</div>
+        	</li>
+    	</ul>
+	</div>
+{% endblock %}
+
+{% block full %}
+	<!-- left -->
+    <div class="left col-sm-4">
+        <div id="slide" data-target="#nav" data-offset="0" class="">
+        <form class="form-horizontal" action="{{ url_for('views.bill_search') }}" method="POST" role="form">
+        		<div class="form-group">
+            		<div class=""><textarea class="form-control" id="serial_num" name="serial_num" placeholder="批量查询，最多10单" rows="8"></textarea></div>
+        		</div>
+        		<div class="form-group">
+            		<div class="pull-right"><button type="submit" class="btn btn-default">查询</button></div>
+        		</div>
+    		</form>
+    	</div>
+	</div>
+	<!-- center -->
+	<div class="center col-sm-4">
+		<div class="list-group">
+  			<a href="{{ url_for('views.knowledge_detail', name='category') }}" class="list-group-item">
+    			<h4 class="list-group-item-heading">中华人民共和国进境物品归类表</h4>
+  			</a>
+  			<a href="{{ url_for('views.knowledge_detail', name='forbidden') }}" class="list-group-item">
+    			<h4 class="list-group-item-heading">航空禁运商品明细</h4>
+  			</a>
+  			<a href="{{ url_for('views.knowledge_detail', name='offset') }}" class="list-group-item">
+    			<h4 class="list-group-item-heading">起点速递免责赔偿条款</h4>
+  			</a>
+  			<a href="{{ url_for('views.knowledge_detail', name='pay') }}" class="list-group-item">
+    			<h4 class="list-group-item-heading">收费标准</h4>
+  			</a>
+  			<a href="{{ url_for('views.knowledge_detail', name='tax') }}" class="list-group-item">
+    			<h4 class="list-group-item-heading">个人行游完税价格表</h4>
+  			</a>
+		</div>
+    </div>
+    <!-- right -->
+	<div class="right col-sm-4">
+		<ul class="list-group">
+  			<li class="list-group-item">
+  				<p><a href="mailto:lzmchris@hotmail.com?Subject=[意见反馈]" target="_blank">发邮件：起点速递-小李</a></p>
+  			</li>
+    		<li class="list-group-item list-group-item-info">
+  				<p><a href="mailto:yiwang8512@gmail.com?Subject=[意见反馈]" target="_blank">发邮件：起点速递-小王</a></p>
+  			</li>
+  			<li class="list-group-item">
+  				<p>微信：momomo_sz</p>
+  			</li>
+    		<li class="list-group-item list-group-item-info">
+  				<p>微信：fredli84</p>
+  			</li>
+		</ul>
+    </div>
+{% endblock %}
+
+{% block script %}
+{{ super() }}
+<script src="{{ versioning('scripts/vendor/unslider.js') }}"></script>
+<script type="text/javascript">
+	$(function() {
+    	$('.banner').unslider({
+				keys: true,
+				dots: true,
+				fluid: false
+			});
+    	});
+</script>
+{% endblock %}

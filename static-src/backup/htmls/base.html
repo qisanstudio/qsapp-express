@@ -81,7 +81,7 @@
 
         {% block banner %}{% endblock %}
 
-        <div class="wrap hide">
+        <div class="wrap">
             <div class="container">
                 <div class="row">
                     {% with messages = get_flashed_messages() %}
@@ -110,7 +110,6 @@
             </div>
         </div>
 
-        {% block footer %}
         <div id="footer" class="footer">
             <div class="container">
                 <div class="row">
@@ -135,7 +134,6 @@
                 </div>
             </div>
         </div>
-        {% endblock %}
 
         {% block script %}
             <script>

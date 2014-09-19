@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block banner %}
-	<div class="banner">
+	<div class="banner hide">
     	<ul>
         	<li style="width: 25%; background-image: url(http://www.bootcss.com/p/unslider/img/sunset.jpg); background-size: 100% 100%;">
         		<div class="inner">
@@ -30,8 +30,21 @@
         	</li>
     	</ul>
 	</div>
-    <div class="row" style="background: #f7f7f6; padding: 20px 50px;">
-        <div class="col-md-offset-8 col-md-4">
+    <div class="row" style="background: #f7f7f6; padding-top: 30px;">
+		<div class="col-md-1"></div>
+		<div class="col-md-7">
+			<blockquote>
+				{{ random_choice([
+					'<p>有只鸭子叫小黄，一天他被车撞到，他就大叫一声：「呱！」从此他就变成小黄瓜了!! </p><footer class="hide">in <cite title="Source Title">Title</cite></footer>',
+					'<p> 甲：“我带你去一个全部女生都没有穿胸罩的地方。”
+					乙：“真的吗？在哪里？快带我去！”
+					甲：“就在隔壁的幼儿园！” </p><footer class="hide">in <cite title="Source Title">Title</cite></footer>',
+					'<p>开心词典节目主持人王小丫现场采访一位节目观众，问：“在你心目中你最崇拜哪个女主持人？”观众说：“是你呀。”王小丫问：“为何如此说？”观众说：“因为你长得有点像杨澜！”</p><footer class="hide">in <cite title="Source Title">Title</cite></footer>',
+					'<p>我最讨厌两种人： 一是有种族歧视的； 二是黑人； 三是不识数的！</p><footer class="hide">in <cite title="Source Title">Title</cite></footer>',
+				])|safe }}
+			</blockquote>
+		</div>
+        <div class="col-md-3">
             <form class="form-horizontal" action="{{ url_for('views.bill_search') }}" method="POST" role="form">
                 <div class="form-group">
                     <div class=""><textarea class="form-control" id="serial_num" name="serial_num" placeholder="批量查询，最多10单" rows="8"></textarea></div>
@@ -41,69 +54,103 @@
                 </div>
             </form>
         </div>
+		<div class="col-md-1"></div>
     </div>
-    <div class="row" style="background: #eee; padding: 20px 50px;">
-        <div class="jumbotron">
-            <h1>新闻公告一</h1>
-            <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
-        </div>
+    <div class="row" style="background: #eee; padding-top: 30px;">
+		<div class="col-md-1"></div>
+		<div class="col-md-8">
+			<div class="panel panel-default">
+				<div class="panel-heading" style="font-size:18px;">新闻公告</div>
+				<div class="panel-body">
+					<dl class="dl-horizontal" style="font-size:16px;">
+						<dt style="width:240px;margin-right:10px;">中华人民共和国进境物品归类表</dt><dd>中华人民共和国进境物品归类表中华人民共和国进境物品归类表</dd>
+						<dt style="width:240px;margin-right:10px;">航空禁运商品明细</dt><dd>航空禁运商品明细航空禁运商品明细航空禁运商品明细航空禁运商品明细</dd>
+						<dt style="width:240px;margin-right:10px;">起点速递免责赔偿条款</dt><dd>起点速递免责赔偿条款起点速递免责赔偿条款起点速递免责赔偿条款起点速递免责赔偿条款</dd>
+						<dt style="width:240px;margin-right:10px;">中华人民共和国进境物品归类表</dt><dd>中华人民共和国进境物品归类表中华人民共和国进境物品归类表</dd>
+						<dt style="width:240px;margin-right:10px;">航空禁运商品明细</dt><dd>航空禁运商品明细航空禁运商品明细航空禁运商品明细航空禁运商品明细</dd>
+						<dt style="width:240px;margin-right:10px;">起点速递免责赔偿条款</dt><dd>起点速递免责赔偿条款起点速递免责赔偿条款起点速递免责赔偿条款起点速递免责赔偿条款</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading" style="font-size:18px;">相关资料</div>
+				<div class="panel-body">
+					<dl class="dl-horizontal" style="font-size:16px;">
+						<dt style="width:240px;margin-right:10px;">中华人民共和国进境物品归类表</dt><dd>中华人民共和国进境物品归类表中华人民共和国进境物品归类表</dd>
+						<dt style="width:240px;margin-right:10px;">航空禁运商品明细</dt><dd>航空禁运商品明细航空禁运商品明细航空禁运商品明细航空禁运商品明细</dd>
+						<dt style="width:240px;margin-right:10px;">起点速递免责赔偿条款</dt><dd>起点速递免责赔偿条款起点速递免责赔偿条款起点速递免责赔偿条款起点速递免责赔偿条款</dd>
+						<dt style="width:240px;margin-right:10px;">中华人民共和国进境物品归类表</dt><dd>中华人民共和国进境物品归类表中华人民共和国进境物品归类表</dd>
+						<dt style="width:240px;margin-right:10px;">航空禁运商品明细</dt><dd>航空禁运商品明细航空禁运商品明细航空禁运商品明细航空禁运商品明细</dd>
+						<dt style="width:240px;margin-right:10px;">起点速递免责赔偿条款</dt><dd>起点速递免责赔偿条款起点速递免责赔偿条款起点速递免责赔偿条款起点速递免责赔偿条款</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
 
-        <div class="jumbotron">
-            <h1>新闻公告二</h1>
-            <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
-        </div>
-
-        <div class="jumbotron">
-            <h1>新闻公告三</h1>
-            <p>新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容新闻内容</p>
-        </div>
+		<div class="col-md-2">
+			<div class="thumbnail">
+				<img src="{{ versioning('images/2Dcode.png') }}" width="160" height="160"/>
+				<div class="caption">
+					<h3>微信公共帐号：oexpressus</h3>
+			        <p>微信公共帐号的介绍</p>
+				</div>
+			</div>
+			<div class="thumbnail">
+				<img src="{{ versioning('images/2Dcode.png') }}" width="160" height="160"/>
+				<div class="caption">
+					<h3>微信公共帐号：oexpressus</h3>
+			        <p>微信公共帐号的介绍</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
     </div>
-        <div>
+	<div class="row hide">
                 <a href="http://www.ups.com/" title="UPS" target="_blank">
                   <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/159820130124162859.jpg
 " width="140px;" height="48px;" alt="UPS">
                 </a>
-                
+
                 <a href="http://www.dhl.com/en.html" title="DHL" target="_blank">
                   <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/125420130124135341.png
 " width="140px;" height="48px;" alt="DHL">
                 </a>
-                
+
                 <a href="http://www.fedex.com/" title="FedEx" target="_blank">
                   <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/154720130124135402.jpg
 " width="140px;" height="48px;" alt="FedEx">
                 </a>
-                
+
                 <a href="http://www.ontrac.com/" title="OnTrac" target="_blank">
                   <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/171920130124141716.jpg
 " width="140px;" height="48px;" alt="OnTrac">
                 </a>
-                
+
                 <a href="http://www.ems.com.cn/" title="EMS" target="_blank">
                   <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/166520130124140039.jpg
 " width="140px;" height="48px;" alt="EMS">
                 </a>
-                
+
                 <a href="https://www.usps.com/" title="USPS" target="_blank">
                   <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/181320130124140602.jpg
 " width="140px;" height="48px;" alt="USPS">
                 </a>
-                
+
                 <a href="https://www.alipay.com/" title="支付宝" target="_blank">
                   <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/180320130124140803.jpg
 " width="140px;" height="48px;" alt="支付宝">
                 </a>
-                
+
                 <a href="http://usa.visa.com/?country=us&amp;ep=v_gg_new&amp;akamai=true" title="VISA" target="_blank">
                   <img src="http://42.121.114.88/imageserver/jiuhe/2013/01/24/135920130124141244.jpg
 " width="140px;" height="48px;" alt="VISA">
                 </a>
-              </div>
+		</div>
 {% endblock %}
 
 {% block full %}
 	<!-- left -->
-    <div class="left col-sm-4">  
+    <div class="left col-sm-4">
 	</div>
 	<!-- center -->
 	<div class="center col-sm-4">
@@ -143,6 +190,60 @@
 		</ul>
     </div>
     </div>
+{% endblock %}
+
+{% block footer %}
+	<footer class="footer ">
+	  <div class="container">
+	    <div class="row footer-top">
+	      <div class="col-sm-6 col-lg-6">
+	        <h4>
+	          <img src="http://static.bootcss.com/www/assets/img/logo.png">
+	        </h4>
+	        <p>本网站所列开源项目的中文版文档全部由<a href="http://www.bootcss.com/">Bootstrap中文网</a>成员翻译整理，并全部遵循 <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank">CC BY 3.0</a>协议发布。</p>
+	      </div>
+	      <div class="col-sm-6  col-lg-5 col-lg-offset-1">
+	        <div class="row about">
+	          <div class="col-xs-3">
+	            <h4>关于</h4>
+	            <ul class="list-unstyled">
+	              <li><a href="/about/">关于我们</a></li>
+	              <li><a href="/ad/">广告合作</a></li>
+	              <li><a href="/links/">友情链接</a></li>
+	            </ul>
+	          </div>
+	          <div class="col-xs-3">
+	            <h4>联系方式</h4>
+	            <ul class="list-unstyled">
+	              <li><a href="http://weibo.com/bootcss" title="Bootstrap中文网官方微博" target="_blank">新浪微博</a></li>
+	              <li><a href="mailto:admin@bootcss.com">电子邮件</a></li>
+	            </ul>
+	          </div>
+	          <div class="col-xs-3">
+	            <h4>旗下网站</h4>
+	            <ul class="list-unstyled">
+	              <li><a href="http://www.golaravel.com/" target="_blank">Laravel中文网</a></li>
+	              <li><a href="http://www.ghostchina.com/" target="_blank">Ghost中国</a></li>
+	            </ul>
+	          </div>
+	          <div class="col-xs-3">
+	            <h4>赞助商</h4>
+	            <ul class="list-unstyled">
+	              <li><a href="https://www.upyun.com" target="_blank">又拍云</a></li>
+	            </ul>
+	          </div>
+	        </div>
+
+	      </div>
+	    </div>
+	    <hr>
+	    <div class="row footer-bottom">
+	      <ul class="list-inline text-center">
+	        <li><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备11008151号</a></li><li>京公网安备11010802014853</li>
+	      </ul>
+	    </div>
+	  </div>
+	</footer>
 {% endblock %}
 
 {% block script %}
