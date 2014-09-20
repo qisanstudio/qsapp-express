@@ -22,3 +22,4 @@ with app.app_context():
     app.add_url_rule('/apps/%s/<path:filename>' %
                         app.name, endpoint='static', #subdomain='static',
                         view_func=app.send_static_file)
+

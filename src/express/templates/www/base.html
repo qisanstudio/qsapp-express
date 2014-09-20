@@ -39,10 +39,11 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         {% block navitems %}
-                        <li class=""><a href="{ url_for('views.news') }}">新闻公告</a></li>
-                        <li class=""><a href="{ url_for('views.order_fast') }}">快速下单</a></li>
-                        <li class=""><a href="{ url_for('views.knowledge') }}">常见问题</a></li>
-                        <li class=""><a href="{ url_for('views.calc') }}">计算工具</a></li>
+                        <li class=""><a href="{ url_for('views.aboutus') }}">关于我们</a></li>
+                        <li class=""><a href="{ url_for('views.pay') }}">收费标准</a></li>
+                        <li class=""><a href="{ url_for('views.service') }}">服务特色</a></li>
+                        <li class=""><a href="{{ url_for('views.knowledge') }}">转运知识</a></li>
+
                         {% endblock %}
                     </ul>
                     <ul class="nav navbar-nav navbar-right" >
@@ -113,7 +114,7 @@
         <footer class="footer">
             <div class="row">
                 <div class="col-sm-1"></div>
-                <div class="col-sm-8">
+                <div class="col-sm-8" style="padding-top:50px;">
                     <ul class="list-inline">
                         <li><a href="">关于我们</a></li>
                         <li><a href="">隐私政策</a></li>
@@ -123,7 +124,10 @@
                     Copyright © 2014 qisanstudio  七三工作室  版权所有 <a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备11011422号</a>
                 </div>
                 <div class="col-sm-2">
-                    <img src="" height="100" height="100" style="width:100px;height:100px;">
+                    <div class="thumbnail">
+                        <img src="{{ versioning('images/2Dcode.png') }}" width="120" height="120"/>
+                        <div class="caption text-center"><p>微信号：oexpressus</p></div>
+                    </div>
                 </div>
                 <div class="col-sm-1"></div>
             </div>
