@@ -62,11 +62,13 @@ gulp.task('html', ['styles', 'scripts'], function () {
 
 gulp.task('images', function () {
     return gulp.src(yo.dev + '/images/**/*')
-        .pipe($.cache($.imagemin({
+//        .pipe($.cache($.imagemin({
+        .pipe($.imagemin({
             optimizationLevel: 3,
             progressive: true,
             interlaced: true
-        })))
+        }))
+//        )
         .pipe(gulp.dest(yo.prod + '/images'))
         .pipe($.size());
 });
